@@ -1,8 +1,8 @@
-//Binary Search to find X in sorted array
+//1 Binary Search to find X in sorted array
 
 import java.util.Stack;
 
-class BinarySearch  {
+class Binary_Search_to_find_X_in_sorted_array  {
     public int search(int[] nums, int target) {
         int n = nums.length;
         int left = 0, right = n-1;
@@ -16,9 +16,9 @@ class BinarySearch  {
     }
 }
 
-//Implement Lower Bound
+//2 Implement Lower Bound
 
-class Solution {
+class Implement_Lower_Bound {
 
     static int findFloor(int[] arr, int k) {
         // write code here
@@ -52,3 +52,25 @@ class Solution {
         return -1;
     }
 }
+
+//3 Implement Upper Bound
+
+class Implement_Upper_Bound {
+    public int[] getFloorAndCeil(int x, int[] arr) {
+      int floor = Integer.MIN_VALUE,ceil = Integer.MAX_VALUE;
+      for(int num : arr){
+          if(num<=x){
+              floor = Math.max(floor,num);
+          }
+          if(num>=x){
+             ceil = Math.min(ceil,num);
+          }
+      }
+      if(floor == Integer.MIN_VALUE)floor = -1;
+      if(ceil == Integer.MAX_VALUE) ceil= -1;
+      
+      return new int[] {floor,ceil};
+    }
+}
+
+
