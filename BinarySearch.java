@@ -177,3 +177,24 @@ class Solution {
     }
 }
 
+// Count occurrences of a number in a sorted array with duplicates
+
+class Solution {
+    int countFreq(int[] arr, int target) {
+            int count=0;
+            int i=0;
+            int j=arr.length-1;
+            while(i<=j){
+                if(arr[i]==target){
+                    count++;
+                }
+                    
+                if(i!=j&&arr[j]==target){
+                    count++;
+                }
+                i++;
+                j--;
+            }
+            return count;
+        }
+    }
