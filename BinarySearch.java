@@ -198,3 +198,52 @@ class Solution {
             return count;
         }
     }
+
+// Search in Rotated Sorted Array
+
+class Solution {
+    public int search(int[] nums, int target) {
+        int n = nums.length;
+        int start = 0, end = n - 1;
+        int mid, ans = -1;
+
+        while (start <= end) {
+            mid = start + (end - start) / 2;
+
+            if (nums[mid] > nums[n - 1])
+                start = mid + 1;
+            else {
+                ans = mid;
+                end = mid - 1;
+            }
+        }
+
+        if (target == nums[ans])
+            return ans;
+
+        if (target > nums[ans] && target > nums[n - 1]) {
+            start = 0;
+            end = ans - 1;
+        }
+        else {
+            start = ans + 1;
+            end = n - 1;
+        }
+
+        ans = -1;
+        while (start <= end) {
+            mid = start + (end - start) / 2;
+
+            if (nums[mid] == target) {
+                ans = mid;
+                break;
+            }
+            else if (nums[mid] < target)
+                start = mid + 1;
+            else
+                end = mid - 1;
+        }
+
+        return ans;
+    }
+}
