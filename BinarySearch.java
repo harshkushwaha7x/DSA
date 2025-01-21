@@ -1,92 +1,63 @@
-//1 Binary Search to find X in sorted array
+// Binary Search to find X in a sorted array
 
-import java.util.Stack;
-
-class Binary_Search_to_find_X_in_sorted_array  {
+class BinarySearchToFindX {
     public int search(int[] nums, int target) {
-        int n = nums.length;
-        int left = 0, right = n-1;
-        while(left <= right){
-            int mid = (left + right)/2;
-            if(nums[mid] == target) return mid;
-            else if(nums[mid] > target) right = mid - 1;
+        int left = 0, right = nums.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] == target) return mid;
+            else if (nums[mid] > target) right = mid - 1;
             else left = mid + 1;
         }
         return -1;
     }
 }
 
-//2 Implement Lower Bound
+// Implement Lower Bound
 
-class Implement_Lower_Bound {
-
+class ImplementLowerBound {
     static int findFloor(int[] arr, int k) {
-        // write code here
-        int low = 0;
-        int high = arr.length - 1;
-        if(arr[low]>k){
-            return -1;
+        int low = 0, high = arr.length - 1;
+        if (arr[low] > k) return -1; // No floor exists
+        if (arr[high] < k) return high; // All values are less than k
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (arr[mid] == k) return mid;
+            else if (arr[mid] > k) high = mid - 1;
+            else low = mid + 1;
         }
-        if(arr[high]<k){
-            return high;
-        }
-        while(low <= high){
-            int mid = (low + high)/2;
-            if(arr[mid] == k){
-                return mid;
-            }else if(arr[mid]>k){
-                if(mid==0){
-                    return -1;
-                }else if(arr[mid - 1]>k){
-                    high = mid-1;
-                }else{
-                    return mid-1;
-                }
-            }
-            else if(arr[mid]>k){
-                high = mid-1;
-            }else{
-                low = mid + 1;
-            }
-        }
-        return -1;
+        return high; 
     }
 }
 
-//3 Implement Upper Bound
+// Implement Upper Bound
 
-class Implement_Upper_Bound {
+class ImplementUpperBound {
     public int[] getFloorAndCeil(int x, int[] arr) {
-      int floor = Integer.MIN_VALUE,ceil = Integer.MAX_VALUE;
-      for(int num : arr){
-          if(num<=x){
-              floor = Math.max(floor,num);
-          }
-          if(num>=x){
-             ceil = Math.min(ceil,num);
-          }
-      }
-      if(floor == Integer.MIN_VALUE)floor = -1;
-      if(ceil == Integer.MAX_VALUE) ceil= -1;
-      
-      return new int[] {floor,ceil};
+        int floor = Integer.MIN_VALUE, ceil = Integer.MAX_VALUE;
+        for (int num : arr) {
+            if (num <= x) floor = Math.max(floor, num);
+            if (num >= x) ceil = Math.min(ceil, num);
+        }
+        if (floor == Integer.MIN_VALUE) floor = -1;
+        if (ceil == Integer.MAX_VALUE) ceil = -1;
+        
+        return new int[] {floor, ceil};
     }
 }
 
-//4 Search Insert Position
+// Search Insert Position
 
-class Search_Insert_Position {
+class SearchInsertPosition {
     public int searchInsert(int[] nums, int target) {
-        int start = 0;
-        int end = nums.length-1;
-
+        int start = 0, end = nums.length - 1;
         while (start <= end) {
-            int mid = start + (end-start)/2;
+            int mid = start + (end - start) / 2;
             if (nums[mid] == target) return mid;
-            else if (nums[mid] > target) end = mid-1;
-            else start = mid+1;
+            else if (nums[mid] > target) end = mid - 1;
+            else start = mid + 1;
         }
-
         return start;
     }
 }
@@ -99,14 +70,12 @@ public class BinarySearch {
         int ans = -1;
 
         while (low <= high) {
-            int mid = (low + high) / 2;
-            // maybe an answer
+            int mid = low + (high - low) / 2;
             if (arr[mid] <= x) {
-                ans = arr[mid];
-                //look for smaller index on the left
-                low = mid + 1;
+                ans = arr[mid]; 
+                low = mid + 1; 
             } else {
-                high = mid - 1; // look on the right
+                high = mid - 1; 
             }
         }
         return ans;
@@ -117,169 +86,135 @@ public class BinarySearch {
         int ans = -1;
 
         while (low <= high) {
-            int mid = (low + high) / 2;
-            // maybe an answer
+            int mid = low + (high - low) / 2;
             if (arr[mid] >= x) {
-                ans = arr[mid];
-                //look for smaller index on the left
-                high = mid - 1;
+                ans = arr[mid]; 
+                high = mid - 1; 
             } else {
-                low = mid + 1; // look on the right
+                low = mid + 1; 
             }
         }
         return ans;
     }
+
     public static int[] getFloorAndCeil(int[] arr, int n, int x) {
-        int f = findFloor(arr, n, x);
-        int c = findCeil(arr, n, x);
-        return new int[] {f, c};
+        int floor = findFloor(arr, n, x);
+        int ceil = findCeil(arr, n, x);
+        return new int[] {floor, ceil};
     }
+
     public static void main(String[] args) {
         int[] arr = {3, 4, 4, 7, 8, 10};
         int n = 6, x = 5;
         int[] ans = getFloorAndCeil(arr, n, x);
-        System.out.println("The floor and ceil are: " + ans[0]
-                           + " " + ans[1]);
+        System.out.println("The floor and ceil are: " + ans[0] + " " + ans[1]);
     }
-} 
+}
 
 // Find the first or last occurrence of a given number in a sorted array
 
-class Solution {
-    public int[] searchRange(int[] nums, int t) {
-        int[] a = new int[2];
-        a[0] = search(nums, t, true);
-        a[1] = search(nums, t, false);
-        return a;
+class SolutionFirstLast {
+    public int[] searchRange(int[] nums, int target) {
+        int[] result = new int[2];
+        result[0] = search(nums, target, true);
+        result[1] = search(nums, target, false);
+        return result;
     }
 
-    public int search(int[] nums, int t, boolean b) {
-        int s = 0;
-        int e = nums.length - 1;
-        int m;
-        int a = -1;
-        while (s <= e) {
-            m = s + (e - s) / 2;
-            if (nums[m] == t) {
-                a = m;
-                if (b) {
-                    e = m - 1;
-                } else {
-                    s = m + 1;
-                }
-            } else if (nums[m] > t) {
-                e = m - 1;
-            } else {
-                s = m + 1;
-            }
+    private int search(int[] nums, int target, boolean findFirst) {
+        int left = 0, right = nums.length - 1, result = -1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] == target) {
+                result = mid;
+                if (findFirst) right = mid - 1;
+                else left = mid + 1;
+            } else if (nums[mid] > target) right = mid - 1;
+            else left = mid + 1;
         }
-        return a;
+        return result;
     }
 }
 
 // Count occurrences of a number in a sorted array with duplicates
 
-class Solution {
-    int countFreq(int[] arr, int target) {
-            int count=0;
-            int i=0;
-            int j=arr.length-1;
-            while(i<=j){
-                if(arr[i]==target){
+class SolutionCountOccurrences {
+    public int countFreq(int[] arr, int target) {
+        int left = 0, right = arr.length - 1;
+        int count = 0;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (arr[mid] == target) {
+                count++;
+                int temp = mid - 1;
+                while (temp >= 0 && arr[temp] == target) {
                     count++;
+                    temp--;
                 }
-                    
-                if(i!=j&&arr[j]==target){
+                temp = mid + 1;
+                while (temp < arr.length && arr[temp] == target) {
                     count++;
+                    temp++;
                 }
-                i++;
-                j--;
-            }
-            return count;
-        }
-    }
-
-// Search in Rotated Sorted Array
-
-class Solution {
-    public int search(int[] nums, int target) {
-        int n = nums.length;
-        int start = 0, end = n - 1;
-        int mid, ans = -1;
-
-        while (start <= end) {
-            mid = start + (end - start) / 2;
-
-            if (nums[mid] > nums[n - 1])
-                start = mid + 1;
-            else {
-                ans = mid;
-                end = mid - 1;
-            }
-        }
-
-        if (target == nums[ans])
-            return ans;
-
-        if (target > nums[ans] && target > nums[n - 1]) {
-            start = 0;
-            end = ans - 1;
-        }
-        else {
-            start = ans + 1;
-            end = n - 1;
-        }
-
-        ans = -1;
-        while (start <= end) {
-            mid = start + (end - start) / 2;
-
-            if (nums[mid] == target) {
-                ans = mid;
                 break;
-            }
-            else if (nums[mid] < target)
-                start = mid + 1;
-            else
-                end = mid - 1;
+            } else if (arr[mid] > target) right = mid - 1;
+            else left = mid + 1;
         }
-
-        return ans;
+        return count;
     }
 }
 
-// Search in Rotated Sorted Array ||
+// Search in Rotated Sorted Array
 
-class Solution {
+class SolutionRotatedArray {
+    public int search(int[] nums, int target) {
+        int n = nums.length;
+        int start = 0, end = n - 1;
+        
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+            if (nums[mid] == target) return mid;
+            if (nums[start] <= nums[mid]) {
+                if (nums[start] <= target && target <= nums[mid]) {
+                    end = mid - 1;
+                } else {
+                    start = mid + 1;
+                }
+            } else {
+                if (nums[mid] <= target && target <= nums[end]) {
+                    start = mid + 1;
+                } else {
+                    end = mid - 1;
+                }
+            }
+        }
+        return -1;
+    }
+}
+
+// Search in Rotated Sorted Array || (with duplicates)
+
+class SolutionRotatedArrayWithDuplicates {
     public boolean search(int[] nums, int target) {
-       int l = 0;
-       int h = nums.length-1;
-       while(l<=h){
-        int mid=l+(h-l)/2;
-        if(nums[mid]==target) return true;
-        if(nums[l]==nums[mid]&& nums[mid]==nums[h]){
-            h--;
-            l++;
-            continue;
+        int left = 0, right = nums.length - 1;
 
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+
+            if (nums[mid] == target) return true;
+
+            if (nums[left] == nums[mid] && nums[mid] == nums[right]) {
+                left++;
+                right--;
+            } else if (nums[left] <= nums[mid]) {
+                if (nums[left] <= target && target <= nums[mid]) right = mid - 1;
+                else left = mid + 1;
+            } else {
+                if (nums[mid] <= target && target <= nums[right]) left = mid + 1;
+                else right = mid - 1;
+            }
         }
-        if(nums[l]<=nums[mid]){
-            if(nums[l]<=target && target<=nums[mid]){
-                h = mid-1;
-            }
-            else{
-                l = mid+1;
-            }
-        }
-        else{
-            if(nums[mid]<=target && target<=nums[h]){
-                l = mid+1;
-            }
-            else{
-                h = mid-1;
-            }
-        }
-       }
-       return false;
+        return false;
     }
 }
