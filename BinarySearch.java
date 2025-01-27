@@ -180,27 +180,16 @@ class FindPeakElement {
 }
 
 // Square Root
-
-class Solution {
-    int floorSqrt(int n) {
-        // Your code here
-        int low = 1;
-        int high = n/2;
-        int ans = -1;
-        if (n == 1){
-            return 1;
-        }
-        while(low<=high){
-            int mid = low + ((high - low)/2);
-            int num = mid * mid;
-            if (num == n){
-                return mid;
-            }
-            else if (num<n){
+class SquareRoot {
+    public int floorSqrt(int n) {
+        int low = 1, high = n / 2, ans = -1;
+        if (n == 1) return 1;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (mid <= n / mid) {
                 ans = mid;
                 low = mid + 1;
-            }
-            else{
+            } else {
                 high = mid - 1;
             }
         }
@@ -208,26 +197,17 @@ class Solution {
     }
 }
 
-// Find nth root of m
-
-class Solution {
+// Find nth Root of m
+class NthRoot {
     public int nthRoot(int n, int m) {
-        // code here
-        int low = 1;
-        int high = m;
-        int ans = 1;
-        while(low<=high){
-            
-            int mid = (low+high)/2;
-            if(Math.pow(mid,n) == m){
-                return mid;
-            }else if(Math.pow(mid,n) < m){
-                low = mid+1;
-            }else{
-                high = mid - 1;
-            }
+        int low = 1, high = m;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            long power = (long) Math.pow(mid, n);
+            if (power == m) return mid;
+            else if (power < m) low = mid + 1;
+            else high = mid - 1;
         }
         return -1;
     }
 }
-
