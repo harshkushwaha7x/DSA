@@ -228,7 +228,7 @@ class Solution {
 
     public int minEatingSpeed(int[] piles, int h) {
         // Binary search for the minimum eating speed
-        int n = max(piles); // Maximum number of bananas in a single pile
+        int n = max(piles); 
         int l = 1;          // Minimum possible eating speed
         int r = n;          // Maximum possible eating speed
         int ans = Integer.MAX_VALUE;
