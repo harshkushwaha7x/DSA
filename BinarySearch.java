@@ -216,7 +216,6 @@ class NthRoot {
 
 class Solution {
     public int max(int[] arr) {
-        // Helper function to find the maximum element in the array
         int m = -1;
         for (int i = 0; i < arr.length; i++) {
             if (m < arr[i]) {
@@ -227,30 +226,67 @@ class Solution {
     }
 
     public int minEatingSpeed(int[] piles, int h) {
-        // Binary search for the minimum eating speed
         int n = max(piles); 
-        int l = 1;          // Minimum possible eating speed
-        int r = n;          // Maximum possible eating speed
+        int l = 1;          
+        int r = n;          
         int ans = Integer.MAX_VALUE;
 
         while (l <= r) {
-            long hr = 0; // Total hours required with the current mid
+            long hr = 0; 
             int mid = (l + r) / 2;
 
-            // Calculate hours needed for the current eating speed
             for (int i = 0; i < piles.length; i++) {
-                hr += (long) (piles[i] + mid - 1) / mid; // Avoid overflow
+                hr += (long) (piles[i] + mid - 1) / mid; 
             }
 
             if (hr <= h) {
-                // If Koko can finish within h hours, update the answer
                 ans = Math.min(ans, mid);
-                r = mid - 1; // Search for a smaller eating speed
+                r = mid - 1; 
             } else {
-                l = mid + 1; // Search for a larger eating speed
+                l = mid + 1; 
             }
         }
 
-        return ans; // Return the minimum valid eating speed
+        return ans; 
     }
 }
+
+// Minimum Number of Days to Make m Bouquets
+
+class Solution {
+    public int minDays(int[] bloomDay, int m, int k) {
+        int left = 1, right = 1000000000;
+        int result = -1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (canMakeBouquets(bloomDay, m, k, mid)) {
+                result = mid;
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+
+        return result;
+    }
+
+    private boolean canMakeBouquets(int[] bloomDay, int m, int k, int days) {
+        int consecutiveFlowers = 0, bouquetCount = 0;
+
+        for (int bloom : bloomDay) {
+            if (bloom <= days) {
+                consecutiveFlowers++;
+                if (consecutiveFlowers == k) {
+                    bouquetCount++;
+                    consecutiveFlowers = 0;
+                }
+            } else {
+                consecutiveFlowers = 0;
+            }
+        }
+
+        return bouquetCount >= m;
+    }
+}
+
