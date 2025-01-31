@@ -323,3 +323,49 @@ class Solution {
         return binarySearch(nums, threshold, 1, max);
     }
 }
+
+// Capacity To Ship Packages Within D Days
+
+class Solution {
+    public int countNoOfDays(int[] weights, int cap){
+        int cnt=0;
+        int sum=0;
+        for(int i=0;i< weights.length;i++){
+            if(sum+weights[i]>cap){
+                cnt++;
+                sum = weights[i];
+            }
+            else{
+                sum+=weights[i];
+            }
+        }
+        if(sum>0){
+            cnt++;
+        }
+        return cnt;
+    }
+    public int binarySearch(int[] weights, int days, int low, int high){
+        while(low<= high){
+            int mid = (low+high)/2;
+            int d = countNoOfDays(weights, mid);
+            if(d>days){
+                low = mid+1;
+            }
+            else{
+                high = mid-1;
+            }
+        }
+        return low;
+    }
+    public int shipWithinDays(int[] weights, int days) {
+        int sum =0;
+        int max= -19909791;
+        for(int n: weights){
+            sum+=n;
+            if(max<n){
+                max=n;
+            }
+        }
+        return Math.max(max,binarySearch(weights, days, 1, sum));
+    }
+}
