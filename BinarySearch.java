@@ -369,3 +369,14 @@ class Solution {
         return Math.max(max,binarySearch(weights, days, 1, sum));
     }
 }
+
+// Kth Missing Positive Number
+
+class Solution {
+    public int findKthPositive(int[] arr, int k) {
+        for(int i : arr){
+			if(i <= k) k++; else break;
+		}
+        return k;
+    }
+}
