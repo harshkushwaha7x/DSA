@@ -11,7 +11,6 @@ class TrieNode {
     }
 }
 
-// AutoCompleteSystem Class
 public class AutoCompleteSystem {
     private TrieNode root;
     private TrieNode current;
@@ -39,8 +38,8 @@ public class AutoCompleteSystem {
     public List<String> input(char c) {
         if (c == '#') {
             insert(currentQuery.toString(), 1);
-            currentQuery.setLength(0); 
-            current = root; 
+            currentQuery.setLength(0);
+            current = root;
             return new ArrayList<>();
         }
 
@@ -99,17 +98,17 @@ class DecisionMaking {
 class SwitchCase {
     static double switchCase(int choice, List<Double> arr) {
         switch (choice) {
-            case 1: 
+            case 1:
                 if (arr.size() < 1) {
                     throw new IllegalArgumentException("Circle requires exactly one value: radius.");
                 }
                 return Math.PI * arr.get(0) * arr.get(0);
-            case 2: 
+            case 2:
                 if (arr.size() < 2) {
                     throw new IllegalArgumentException("Rectangle requires exactly two values: length and breadth.");
                 }
                 return arr.get(0) * arr.get(1);
-            default: 
+            default:
                 throw new IllegalArgumentException("Invalid choice: " + choice);
         }
     }
@@ -123,6 +122,7 @@ class WhileLoop {
             System.out.print(i * n + " ");
             i--;
         }
+        System.out.println();
     }
 }
 
@@ -136,29 +136,23 @@ class PassByValue {
 // Main Class
 class Main {
     public static void main(String[] args) {
-        // Example usage of AutoCompleteSystem
         String[] sentences = {"hello world", "hello there", "hello java"};
         int[] times = {3, 1, 2};
         AutoCompleteSystem autoComplete = new AutoCompleteSystem(sentences, times);
 
-        System.out.println(autoComplete.input('h')); // ["hello world", "hello java", "hello there"]
-        System.out.println(autoComplete.input('e')); // ["hello world", "hello java", "hello there"]
+        System.out.println(autoComplete.input('h'));
+        System.out.println(autoComplete.input('e'));
 
-        // Example usage of DataTypeSize
-        System.out.println(DataTypeSize.dataTypeSize("Integer")); // 4
+        System.out.println(DataTypeSize.dataTypeSize("Integer"));
 
-        // Example usage of DecisionMaking
-        System.out.println(DecisionMaking.compareNM(5, 10)); // "lesser"
+        System.out.println(DecisionMaking.compareNM(5, 10));
 
-        // Example usage of SwitchCase
         List<Double> arr = Arrays.asList(5.0, 10.0);
-        System.out.println(SwitchCase.switchCase(2, arr)); // 50.0
+        System.out.println(SwitchCase.switchCase(2, arr));
 
-        // Example usage of WhileLoop
-        WhileLoop.printTable(5); // 50 45 40 35 30 25 20 15 10 5
+        WhileLoop.printTable(5);
 
-        // Example usage of PassByValue
         int[] result = PassByValue.passedBy(5, 10);
-        System.out.println(Arrays.toString(result)); // [6, 12]
+        System.out.println(Arrays.toString(result));
     }
 }

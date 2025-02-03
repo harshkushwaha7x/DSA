@@ -3,3 +3,4 @@ git add BinarySearch.java
 git commit -m "DSA commit"
 git branch -M main
 git push -u origin main
+
