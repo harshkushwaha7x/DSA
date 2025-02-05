@@ -11,12 +11,12 @@ class TrieNode {
     }
 }
 
-public class AutoCompleteSystem {
+public class basics {
     private TrieNode root;
     private TrieNode current;
     private StringBuilder currentQuery;
 
-    public AutoCompleteSystem(String[] sentences, int[] times) {
+    public basics(String[] sentences, int[] times) {
         root = new TrieNode();
         current = root;
         currentQuery = new StringBuilder();
@@ -154,5 +154,103 @@ class Main {
 
         int[] result = PassByValue.passedBy(5, 10);
         System.out.println(Arrays.toString(result));
+    }
+}
+
+// Count Digits
+
+class Solution {
+    static int evenlyDivides(int n) {
+        int count=0;
+        int num = n;
+        
+        while(n>0){
+            int value = n%10;
+            if(value != 0 && num % value == 0){
+                count++;
+            }
+            n = n/10;
+        }
+        return count;
+    }
+}
+
+// Reverse Integer
+
+class Solution {
+    public int reverse(int x) {
+        long i,digit,sum=0;
+        if(x<0)
+        {
+            x=Math.abs(x);
+            while(x>0)
+            {
+                digit=x%10;
+                x=x/10;
+                sum=sum*10+digit;
+            }
+            sum=sum*-1;
+        }
+        else if(x>0)
+        {
+            while(x>0)
+            {
+                digit=x%10;
+                x=x/10;
+                sum=sum*10+digit;
+            }
+        }
+        if(sum<Integer.MIN_VALUE || sum >Integer.MAX_VALUE)
+        return 0;
+
+        return (int)sum;
+    }
+}
+
+// Palindrome Number
+
+class Solution {
+    public boolean isPalindrome(int x) {
+
+        int n=x;
+        int rev=0;
+        if(x<0) return false; 
+
+        for(int i=x;i>0;i/=10){
+            int lastDigit=i%10;
+            rev = rev*10+lastDigit;
+        }
+
+        return (n==rev)? true:false;
+    }
+}
+
+// LCM And GCD
+
+class Solution {
+    public static int[] lcmAndGcd(int a, int b) {
+        int[] res=new int[2];
+        res[0]=lcm(a,b);
+        res[1]=gcd(a,b);
+        return res;
+    }
+    static int gcd(int a,int b){
+        if(b==0)return a;
+        return gcd(b,a%b);
+    }
+    static int lcm(int a,int b){
+        return a*b/gcd(a,b);
+    }
+}
+
+// Sum 1 to n Divisors
+
+class Solution {
+    public static int sumOfDivisors(int n) {
+        int sum = 0;
+        for(int i=1;i<=n;i++){
+            sum += (n/i)*i;
+        }
+        return sum;
     }
 }
