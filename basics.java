@@ -358,3 +358,52 @@ class Solution {
         reverse(arr, start + 1, end - 1, mid);
     }
 }
+
+// Valid Palindrome
+
+class Solution {
+    public boolean isPalindrome(String s) {
+        if (s.isEmpty()) {
+        	return true;
+        }
+        int start = 0;
+        int last = s.length() - 1;
+        while(start <= last) {
+        	char currFirst = s.charAt(start);
+        	char currLast = s.charAt(last);
+        	if (!Character.isLetterOrDigit(currFirst )) {
+        		start++;
+        	} else if(!Character.isLetterOrDigit(currLast)) {
+        		last--;
+        	} else {
+        		if (Character.toLowerCase(currFirst) != Character.toLowerCase(currLast)) {
+        			return false;
+        		}
+        		start++;
+        		last--;
+        	}
+        }
+        return true;
+    }
+}
+
+// Fibonacci Number
+
+class Solution 
+{
+    public int fib(int N)
+    {
+        if(N <= 1)
+            return N;
+        
+		int a = 0, b = 1;
+		
+		while(N-- > 1)
+		{
+			int sum = a + b;
+			a = b;
+			b = sum;
+		}
+        return b;
+    }
+} 
