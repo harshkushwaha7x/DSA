@@ -407,3 +407,62 @@ class Solution
         return b;
     }
 } 
+
+// Frequencies in a Limited Array
+
+class Solution {
+    // Function to count the frequency of all elements from 1 to N in the array.
+    public List<Integer> frequencyCount(int[] arr) {
+        // do modify in the given array
+        ArrayList<Integer> ar=new ArrayList<>();
+        
+        HashMap<Integer,Integer> map=new HashMap<>();
+        
+        for(int i=0;i<arr.length;i++){
+            if(map.containsKey(arr[i])){
+                map.put(arr[i],map.get(arr[i])+1);
+            }else{
+                map.put(arr[i],1);
+            }
+        }
+        
+        for(int i=1;i<=arr.length;i++){
+            if(map.containsKey(i)){
+                ar.add(map.get(i));
+            }else{
+                ar.add(0);
+            }
+        }
+        
+        return ar;
+    }
+}
+
+// Frequency of the Most Frequent Element
+
+import java.util.Arrays;
+
+class Solution {
+    public int maxFrequency(int[] nums, int k) {
+        Arrays.sort(nums);
+        int left = 0, right = 0;
+        int n = nums.length;
+        long sum = 0;  // Using long to avoid overflow
+
+        while (right < n) {
+            sum += nums[right];
+
+            // Check if the current window can be made into an array with all elements as nums[right]
+            long requiredSum = (long)nums[right] * (right - left + 1);
+            long diff = requiredSum - sum;
+
+            if (diff > k) {
+                sum -= nums[left];
+                left++;
+            }
+            right++;
+        }
+
+        return right - left;
+    }
+}https://leetcode.com/problems/maximum-erasure-value/solutions/5182119/sliding-window-two-pointers-pattern/
