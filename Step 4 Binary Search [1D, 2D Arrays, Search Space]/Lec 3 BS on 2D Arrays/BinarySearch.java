@@ -8,13 +8,12 @@ class RowWithMax1s {
         int maxRow = -1;
         int i = 0, j = n - 1;
 
-        // Start from the top-right corner
         while (i < m && j >= 0) {
             if (arr[i][j] == 1) {
                 maxRow = i;
-                j--; // Move left to find the leftmost 1 in the current row
+                j--;
             } else {
-                i++; // Move down to the next row
+                i++;
             }
         }
         return maxRow;
