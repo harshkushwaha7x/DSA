@@ -100,7 +100,7 @@ class SearchRange {
 class CountOccurrences {
     public int countFreq(int[] nums, int target) {
         int first = search(nums, target, true);
-        if (first == -1) return 0; // Target not found
+        if (first == -1) return 0; 
         int last = search(nums, target, false);
         return last - first + 1;
     }
@@ -158,7 +158,7 @@ class SingleNonDuplicate {
         int left = 0, right = nums.length - 1;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            if (mid % 2 == 1) mid--; // Ensure we're on the even index
+            if (mid % 2 == 1) mid--;
             if (nums[mid] == nums[mid + 1]) left = mid + 2;
             else right = mid;
         }
