@@ -112,4 +112,99 @@ class Solution {
     }
 }
 
-// 
+// Move Zeroes
+
+class Solution {
+    public void moveZeroes(int[] nums) {
+        int temp = 0;
+        int n = nums.length;
+        int count = 0;
+
+        for(int i=0; i<n; i++){
+            if(nums[i] == 0){
+                count++;
+            }
+        }
+
+        while(count > 0){
+            for(int i=1; i<n; i++){
+                if(nums[i-1] == 0){
+                    temp = nums[i-1];
+                    nums[i-1] = nums[i];
+                    nums[i] = temp;
+                }
+            }
+            count--;
+        }
+    }
+}
+
+// Sorted Array Search
+
+class Solution {
+    static boolean searchInSorted(int arr[], int k) {
+        // Your code here
+        for(int i=0 ; i<arr.length;i++){
+            if (arr[i] == k){
+                return true;
+            }
+        }
+        
+        return false;
+    }
+}
+
+// Union of 2 Sorted with Duplicates
+
+class Solution {
+    public static ArrayList<Integer> findUnion(int a[], int b[]) {
+=        int n = a.length;
+        int m = b.length;
+        
+        ArrayList<Integer> union = new ArrayList<>();
+        
+        int i=0, j=0;
+        
+        while(i<n && j<m){
+            
+            if(i>0 && a[i] == a[i-1]){
+                i++;
+                continue;
+            }
+            
+            if(j>0 && b[j] == b[j-1]){
+                j++;
+                continue;
+            }
+            
+            if(a[i] < b[j]){
+                union.add(a[i]);
+                i++;
+            }
+            else if(b[j] < a[i]){
+                union.add(b[j]);
+                j++;
+            }
+            else{
+                union.add(a[i]);
+                i++;
+                j++;
+            }
+        }
+        
+        while(i<n){
+            if(i==0 || a[i] != a[i-1]){
+                union.add(a[i]);
+            }
+            i++;
+        }
+        while(j<m){
+            if(j==0 || b[j] != b[j-1]){
+                union.add(b[j]);
+            }
+            j++;
+        }
+        return union;
+    }
+}
+
