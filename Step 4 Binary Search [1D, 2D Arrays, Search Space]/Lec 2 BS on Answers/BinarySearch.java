@@ -206,7 +206,6 @@ class SplitArrayLargestSum {
             sum += num;
         }
         if (m == 1) return (int)sum;
-        //binary search
         long l = max; long r = sum;
         while (l <= r) {
             long mid = (l + r) / 2;
