@@ -228,4 +228,49 @@ class Solution {
     }
 }
 
-// 
+// Single Number
+
+class Solution {
+    public int findMaxConsecutiveOnes(int[] nums) {
+        int count = 0;
+        int max = 0;
+        for(int val : nums){
+            if(val == 1){
+                count++;
+            } else {
+                max = Math.max(max, count);
+                count = 0;
+            }
+        }
+        return Math.max(count, max);
+    }
+}
+
+// Longest Subarray with Sum K
+
+class Solution {
+    public int longestSubarray(int[] arr, int k) {
+        // code here
+        Map<Integer, Integer>presum = new HashMap<>();
+        int n = arr.length;
+        int maxlen = 0;
+        int sum = 0;
+        for(int i = 0;i<n;i++){
+            sum += arr[i];
+            if(sum == k){
+                maxlen = Math.max(maxlen, i+1);
+            }
+        
+            int rem = sum -k;
+            if(presum.containsKey(rem)){
+               int len = i-presum.get(rem);
+                maxlen = Math.max(maxlen, len);
+            }
+            if(!presum.containsKey(sum)){
+                presum.put(sum,i);
+            }
+        }
+        return maxlen;
+    }
+}
+
