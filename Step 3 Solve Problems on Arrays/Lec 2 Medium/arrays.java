@@ -13,3 +13,11 @@ class Solution {
         return new int[0];
     }
 }
+
+// Sort Colors
+
+class Solution {
+    public void sortColors(int[] nums) {
+         Arrays.sort(nums);
+    }
+}
