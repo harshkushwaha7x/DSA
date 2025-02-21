@@ -1,6 +1,11 @@
-// Pascal's Triangle
+import java.util.List;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Arrays;
 
-class Solution {
+// Pascal's Triangle
+class PascalsTriangle {
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> res = new ArrayList<>();
         res.add(List.of(1));
@@ -24,8 +29,7 @@ class Solution {
 }
 
 // Majority Element II
-
-class Solution {
+class MajorityElementII {
     public List<Integer> majorityElement(int[] nums) {
         List<Integer> res = new ArrayList<>();
         HashMap<Integer, Integer> map = new HashMap<>();
@@ -46,8 +50,7 @@ class Solution {
 }
 
 // 3Sum
-
-class Solution {
+class ThreeSum {
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> result= new ArrayList<>();
         Arrays.sort(nums);
@@ -80,8 +83,7 @@ class Solution {
 }
 
 // 4Sum
-
-class Solution {
+class FourSum {
     public List<List<Integer>> fourSum(int[] nums, int target) {
         List<List<Integer>> li=new ArrayList<>();
         if(nums==null || nums.length<4){
@@ -122,8 +124,7 @@ class Solution {
 }
 
 // Largest subarray with 0 sum
-
-class Solution {
+class LargestSubarrayWithZeroSum {
     int maxLen(int arr[]) {
         HashMap<Integer, Integer> map = new HashMap<>();
         int maxlen = 0;
@@ -145,8 +146,7 @@ class Solution {
 }
 
 // Merge Intervals
-
-class Solution {
+class MergeIntervals {
     public int[][] merge(int[][] arr) {
         List<int[]> res = new ArrayList<>();
         Arrays.sort(arr, (a,b) -> Integer.compare(a[0], b[0]));
@@ -169,8 +169,7 @@ class Solution {
 }
 
 // Merge Sorted Array
-
-class Solution {
+class MergeSortedArray {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
          int p1 = m - 1;
          int p2 = n - 1;
@@ -186,10 +185,8 @@ class Solution {
      }
  }
 
-
- // Missing And Repeating
-
- class Solution {
+// Missing And Repeating
+class MissingAndRepeating {
     ArrayList<Integer> findTwoElement(int arr[]) {
         int freq[]=new int [arr.length+1];
         int mis=-1;
@@ -217,8 +214,7 @@ class Solution {
 }
 
 // Count Inversions
-
-class Solution {
+class CountInversions {
     static int inversionCount(int[] arr) {
         if (arr.length < 2) {
             return 0;
@@ -270,8 +266,7 @@ class Solution {
 }
 
 // Reverse Pairs
-
-class Solution {
+class ReversePairs {
     public  static int mergesort(int nums[],int st, int end){
         int count=0;
         if(st>=end){
@@ -329,15 +324,14 @@ class Solution {
 }
 
 // Maximum Product Subarray
-
-class Solution {
+class MaximumProductSubarray {
     public int maxProduct(int[] nums) {
         
         int max = nums[0], min = nums[0], ans = nums[0];
         
         for (int i = 1; i < nums.length; i++) {
             
-            int temp = max;  // store the max because before updating min your max will already be updated
+            int temp = max;  
             
             max = Math.max(Math.max(max * nums[i], min * nums[i]), nums[i]);
             min = Math.min(Math.min(temp * nums[i], min * nums[i]), nums[i]);
@@ -351,4 +345,3 @@ class Solution {
 
     }
 }
-
