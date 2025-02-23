@@ -48,3 +48,23 @@ class Solution {
         return prefix;
     }
 }
+
+// Isomorphic Strings
+
+class Solution {
+    public boolean isIsomorphic(String s, String t) {
+        int len = s.length();
+		int[] sArray = new int[128];
+		int[] tArray = new int[128];
+		for (int i = 0; i < len; i++) {
+			char ch1 = s.charAt(i);
+			char ch2 = t.charAt(i);
+			if (sArray[ch1] != tArray[ch2]) {
+				return false;
+			}
+			sArray[ch1] = i + 1;
+			tArray[ch2] = i + 1;
+		}
+		return true;
+    }
+}
