@@ -101,7 +101,6 @@ class Solution {
 
 class Solution {
     
- 
     long countSubstring(String S, int K) {
         int n = S.length();
         int[] freq = new int[26];
