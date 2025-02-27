@@ -163,7 +163,8 @@ public class Solution {
             lo = j + 1;
             maxLen = k - j - 1;
         }
-    }}
+    }
+}
 
     // Sum of Beauty of All Substrings
 
@@ -189,3 +190,36 @@ public class Solution {
             return result;
         }
     }
+
+// Reverse Words in a String
+
+class Solution {
+    public String reverseWords(String s) {
+        StringBuilder result = new StringBuilder();
+        int end = s.length() - 1;
+
+        while (end >= 0) {
+            while (end >= 0 && s.charAt(end) == ' ') {
+                end--;
+            }
+            if (end < 0) break;
+
+            int start = end;
+            while (start >= 0 && s.charAt(start) != ' ') {
+                start--;
+            }
+
+            for (int i = start + 1; i <= end; i++) {
+                result.append(s.charAt(i));
+            }
+            result.append(" ");
+            end = start; 
+        }
+
+        if (result.length() > 0) {
+            result.setLength(result.length() - 1);
+        }
+
+        return result.toString();
+    }
+}
