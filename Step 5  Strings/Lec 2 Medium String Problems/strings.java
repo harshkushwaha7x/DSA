@@ -1,6 +1,6 @@
 // Sort Characters By Frequency
 
-public class strings {
+public class Strings {
     public String frequencySort(String s) {
         Map<Character, Integer> map = new HashMap<>();
         for (char c : s.toCharArray()) 
@@ -26,7 +26,7 @@ public class strings {
 
 // Maximum Nesting Depth of the Parentheses
 
-class Solution {
+class MaximumNestingDepth {
     public int maxDepth(String s) {
         int max = 0;
         int count = 0;
@@ -43,7 +43,7 @@ class Solution {
 
 // Roman to Integer
 
-class Solution {
+class RomanToInteger {
     public int romanToInt(String s) {
         HashMap<Character, Integer> romanMap = new HashMap<>();
         romanMap.put('I', 1);
@@ -68,7 +68,7 @@ class Solution {
 
 // String to Integer (atoi)
 
-class Solution {
+class StringToIntegerAtoi {
     public int myAtoi(String s) {
         int i = 0, n = s.length(), sign = 1, ans = 0;
 
@@ -98,8 +98,7 @@ class Solution {
 
 // Substrings with K Distinct
 
-
-class Solution {
+class SubstringsWithKDistinct {
     
     long countSubstring(String S, int K) {
         int n = S.length();
@@ -139,7 +138,7 @@ class Solution {
 
 // Longest Palindromic Substring
 
-public class Solution {
+class LongestPalindromicSubstring {
     private int lo, maxLen;
     
     public String longestPalindrome(String s) {
@@ -166,34 +165,34 @@ public class Solution {
     }
 }
 
-    // Sum of Beauty of All Substrings
+// Sum of Beauty of All Substrings
 
-    class Solution {
-        public int beautySum(String s) {
-            int result = 0;
-            for (int i = 0; i < s.length(); i++) {
-                int[] freq = new int[26]; 
-                int maxFreq = 0;
-                for (int j = i; j < s.length(); j++) {
-                    int charIndex = s.charAt(j) - 'a';
-                    freq[charIndex]++;
-                    maxFreq = Math.max(maxFreq, freq[charIndex]);
-                    int minFreq = Integer.MAX_VALUE;
-                    for (int k = 0; k < 26; k++) {
-                        if (freq[k] > 0) {
-                            minFreq = Math.min(minFreq, freq[k]);
-                        }
+class SumOfBeautyOfAllSubstrings {
+    public int beautySum(String s) {
+        int result = 0;
+        for (int i = 0; i < s.length(); i++) {
+            int[] freq = new int[26]; 
+            int maxFreq = 0;
+            for (int j = i; j < s.length(); j++) {
+                int charIndex = s.charAt(j) - 'a';
+                freq[charIndex]++;
+                maxFreq = Math.max(maxFreq, freq[charIndex]);
+                int minFreq = Integer.MAX_VALUE;
+                for (int k = 0; k < 26; k++) {
+                    if (freq[k] > 0) {
+                        minFreq = Math.min(minFreq, freq[k]);
                     }
-                    result += (maxFreq - minFreq);
                 }
+                result += (maxFreq - minFreq);
             }
-            return result;
         }
+        return result;
     }
+}
 
 // Reverse Words in a String
 
-class Solution {
+class ReverseWordsInString {
     public String reverseWords(String s) {
         StringBuilder result = new StringBuilder();
         int end = s.length() - 1;
