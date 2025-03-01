@@ -55,3 +55,22 @@ class Solution{
     }
 }
 
+// Search in Linked List
+
+class Solution {
+    static boolean searchKey(int n, Node head, int key) {
+        boolean present = false;
+        Node counter = head;
+        while(counter.next!=null){
+            
+            if(counter.data == key){
+                present = true;
+                
+            }
+            counter = counter.next;
+        }
+       
+        return present;
+    }
+}
+
