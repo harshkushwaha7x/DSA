@@ -25,3 +25,24 @@ Class Solution {
     }
     
 }
+
+// Doubly linked list Insertion at given position
+
+class Solution {
+    Node addNode(Node head, int p, int x) {
+        Node node = new Node(x);
+        Node temp =head;
+        while(p!=0){
+            temp = temp.next;
+            p--;
+        }
+        node.next = temp.next;
+        temp.next= node;
+        node.prev = temp;
+        
+        
+        return head;
+    }
+}
+
+ 
