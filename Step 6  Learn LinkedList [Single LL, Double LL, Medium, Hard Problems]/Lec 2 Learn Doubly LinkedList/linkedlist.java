@@ -45,4 +45,56 @@ class Solution {
     }
 }
 
- 
+ // Delete in a Doubly Linked List
+
+ class Solution {
+    public Node deleteNode(Node head, int x) 
+    {
+        git commit -m "DSA commit"
+        if(head == null) return null;
+        
+        if(x == 1)
+        {
+            head = head.next;
+            if(head != null)
+            {
+                head.prev = null;
+            }
+            return head;
+        }
+        
+        Node temp = head;
+        
+        int count = 1;
+        while(temp != null)
+        {
+            if(count == x) break;
+            temp = temp.next;
+            count++;
+        }
+        
+        Node back = temp.prev;
+        Node front = temp.next;
+        
+        if(temp.next == null)
+        {
+            temp.prev = null;
+            back.next = null;
+        }
+        
+        else if(temp.prev == null)
+        {
+            head = head.next;
+            temp.next = null;
+            head.prev = null;
+        }
+        else
+        {
+            back.next = front;
+            front.prev = back;
+            temp.next = null;
+            temp.prev = null;
+        }
+        return head;
+    }
+}
