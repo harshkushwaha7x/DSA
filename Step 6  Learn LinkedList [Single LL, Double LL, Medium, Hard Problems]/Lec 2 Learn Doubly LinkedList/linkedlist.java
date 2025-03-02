@@ -98,3 +98,22 @@ class Solution {
         return head;
     }
 }
+
+// Reverse a Doubly Linked List
+
+class Solution {
+    public DLLNode reverseDLL(DLLNode head) {
+      if (head == null || head.next == null) {
+            return head; 
+        }
+        DLLNode current = head;
+        DLLNode last = null;
+        while (current != null) {
+            last = current.prev;
+            current.prev = current.next;
+            current.next = last;
+            current = current.prev;
+        }
+        return last.prev;
+        }
+}
