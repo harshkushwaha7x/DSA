@@ -121,3 +121,34 @@ class Solution {
     }
 }
 
+// Palindrome Linked List
+
+class Solution {
+    public boolean isPalindrome(ListNode head) {
+        if(head == null) return false;
+        ListNode slow = head;
+        ListNode fast = head.next;
+        while(fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        ListNode mid = slow;
+        ListNode prev = null;
+        ListNode next;
+        ListNode curr = mid.next;
+        while(curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev= curr;
+            curr = next;
+        }
+        ListNode left = head;
+        ListNode right = prev;
+        while(right != null) {
+            if(left.val != right.val) return false;
+            left= left.next;
+            right = right.next;
+        }
+        return true;
+    }
+}
