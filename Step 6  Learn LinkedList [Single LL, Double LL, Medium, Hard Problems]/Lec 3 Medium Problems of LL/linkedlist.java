@@ -97,3 +97,27 @@ public class Solution {
         return fast;
     }
 }
+
+// Find length of Loop
+
+class Solution {
+    public int countNodesinLoop(Node head) {
+        int c=1;
+        Node slow=head;
+        Node fast=head;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+            if(slow==fast){
+                slow=slow.next;
+                while(slow!=fast){
+                    slow=slow.next;
+                    c+=1;
+                }
+                return c;
+            }
+        }
+        return 0;
+    }
+}
+
