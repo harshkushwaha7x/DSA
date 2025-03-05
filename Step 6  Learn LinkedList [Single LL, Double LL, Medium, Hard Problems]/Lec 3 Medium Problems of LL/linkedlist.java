@@ -1,58 +1,50 @@
+// ListNode class definition
+class ListNode {
+    int val;
+    ListNode next;
+    ListNode(int x) { val = x; }
+}
+
+// Node class definition (used in some problems)
+class Node {
+    int data;
+    Node next;
+    Node(int x) { data = x; }
+}
+
 // Middle of the Linked List
-
-class Solution {
+class MiddleOfLinkedList {
     public ListNode middleNode(ListNode head) {
-        ListNode slow=head;  
-        ListNode fast=head;    
+        ListNode slow = head;
+        ListNode fast = head;
 
-        while(fast!=null && fast.next!=null)
-        {
-            slow=slow.next;
-            fast=fast.next.next;  
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
         }
 
-        return slow; 
+        return slow;
     }
 }
 
 // Reverse Linked List
-
-class Solution {
+class ReverseLinkedList {
     public ListNode reverseList(ListNode head) {
-        ListNode prev = null;  
+        ListNode prev = null;
         ListNode current = head;
-    
-        
-        while(current != null) { 
-            ListNode next = current.next; 
+
+        while (current != null) {
+            ListNode next = current.next;
             current.next = prev;
             prev = current;
             current = next;
-        }
-       return prev; 
-    }
-}
-
-//  Reverse Linked List
-
-class Solution {
-    public ListNode reverseList(ListNode head) {
-        ListNode prev = null;
-        ListNode curr = head;
-        ListNode nextNode = null;
-        while (curr != null) {
-            nextNode = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = nextNode;
         }
         return prev;
     }
 }
 
 // Linked List Cycle
-
-public class Solution {
+class LinkedListCycle {
     public boolean hasCycle(ListNode head) {
         if (head == null || head.next == null) {
             return false;
@@ -75,273 +67,292 @@ public class Solution {
 }
 
 // Linked List Cycle II
-
-public class Solution {
+class LinkedListCycleII {
     public ListNode detectCycle(ListNode head) {
-        
         ListNode slow = head;
         ListNode fast = head;
-        while(fast != null && fast.next != null) {
+
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
-            if(slow == fast) {
+
+            if (slow == fast) {
                 slow = head;
-                break;
+                while (slow != fast) {
+                    slow = slow.next;
+                    fast = fast.next;
+                }
+                return slow;
             }
         }
-        if (fast == null || fast.next == null) return null;
-        while(fast != slow) {
-            slow = slow.next;
-            fast = fast.next;
-        }
-        return fast;
+
+        return null;
     }
 }
 
-// Find length of Loop
+// Find Length of Loop
+class LengthOfLoop {
+    public int countNodesInLoop(Node head) {
+        int count = 1;
+        Node slow = head;
+        Node fast = head;
 
-class Solution {
-    public int countNodesinLoop(Node head) {
-        int c=1;
-        Node slow=head;
-        Node fast=head;
-        while(fast!=null && fast.next!=null){
-            slow=slow.next;
-            fast=fast.next.next;
-            if(slow==fast){
-                slow=slow.next;
-                while(slow!=fast){
-                    slow=slow.next;
-                    c+=1;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (slow == fast) {
+                slow = slow.next;
+                while (slow != fast) {
+                    slow = slow.next;
+                    count++;
                 }
-                return c;
+                return count;
             }
         }
+
         return 0;
     }
 }
 
 // Palindrome Linked List
-
-class Solution {
+class PalindromeLinkedList {
     public boolean isPalindrome(ListNode head) {
-        if(head == null) return false;
+        if (head == null) return false;
+
         ListNode slow = head;
         ListNode fast = head.next;
-        while(fast != null && fast.next != null) {
+
+        while (fast != null && fast.next != null) {
             fast = fast.next.next;
             slow = slow.next;
         }
+
         ListNode mid = slow;
         ListNode prev = null;
-        ListNode next;
         ListNode curr = mid.next;
-        while(curr != null) {
-            next = curr.next;
+
+        while (curr != null) {
+            ListNode next = curr.next;
             curr.next = prev;
-            prev= curr;
+            prev = curr;
             curr = next;
         }
+
         ListNode left = head;
         ListNode right = prev;
-        while(right != null) {
-            if(left.val != right.val) return false;
-            left= left.next;
+
+        while (right != null) {
+            if (left.val != right.val) return false;
+            left = left.next;
             right = right.next;
         }
+
         return true;
     }
 }
 
-// Odd Even Linked List 
-
-class Solution {
+// Odd Even Linked List
+class OddEvenLinkedList {
     public ListNode oddEvenList(ListNode head) {
-        if(head==null || head.next==null)
-        {
+        if (head == null || head.next == null) {
             return head;
         }
-        ListNode odd=head;
-        ListNode even=head.next;
-        ListNode evenHead=head.next;
-        while(odd.next!=null && even.next!=null)
-        {
-            odd.next=even.next;
-            odd=odd.next;
-            even.next=odd.next;
-            even=even.next;
+
+        ListNode odd = head;
+        ListNode even = head.next;
+        ListNode evenHead = even;
+
+        while (odd.next != null && even.next != null) {
+            odd.next = even.next;
+            odd = odd.next;
+            even.next = odd.next;
+            even = even.next;
         }
-        odd.next=evenHead;
+
+        odd.next = evenHead;
         return head;
     }
 }
 
 // Remove Nth Node From End of List
-
-class Solution {
+class RemoveNthNodeFromEnd {
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode fast = head;
-        for(int i=0; i<n ; i++){
+
+        for (int i = 0; i < n; i++) {
             fast = fast.next;
         }
-        if(fast == null){
+
+        if (fast == null) {
             head = head.next;
             return head;
         }
+
         ListNode slow = head;
-        while(fast.next != null){
+
+        while (fast.next != null) {
             fast = fast.next;
             slow = slow.next;
         }
+
         slow.next = slow.next.next;
         return head;
     }
 }
 
 // Delete the Middle Node of a Linked List
-
-class Solution {
+class DeleteMiddleNode {
     public ListNode deleteMiddle(ListNode head) {
-        if(head.next == null){
+        if (head.next == null) {
             return null;
         }
+
         ListNode slow = head;
         ListNode fast = head.next;
-        while(fast.next != null && fast.next.next != null){
-           fast = fast.next.next;
-           slow = slow.next;
+
+        while (fast.next != null && fast.next.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
         }
+
         slow.next = slow.next.next;
         return head;
     }
 }
 
 // Sort List
-
-public class Solution {
-  
+class SortList {
     public ListNode sortList(ListNode head) {
-      if (head == null || head.next == null)
-        return head;
-          
-      ListNode prev = null, slow = head, fast = head;
-      
-      while (fast != null && fast.next != null) {
-        prev = slow;
-        slow = slow.next;
-        fast = fast.next.next;
-      }
-      
-      prev.next = null;
-      
-      ListNode l1 = sortList(head);
-      ListNode l2 = sortList(slow);
-      
-      return merge(l1, l2);
-    }
-    
-    ListNode merge(ListNode l1, ListNode l2) {
-      ListNode l = new ListNode(0), p = l;
-      
-      while (l1 != null && l2 != null) {
-        if (l1.val < l2.val) {
-          p.next = l1;
-          l1 = l1.next;
-        } else {
-          p.next = l2;
-          l2 = l2.next;
+        if (head == null || head.next == null) {
+            return head;
         }
-        p = p.next;
-      }
-      
-      if (l1 != null)
-        p.next = l1;
-      
-      if (l2 != null)
-        p.next = l2;
-      
-      return l.next;
+
+        ListNode prev = null;
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while (fast != null && fast.next != null) {
+            prev = slow;
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        prev.next = null;
+
+        ListNode l1 = sortList(head);
+        ListNode l2 = sortList(slow);
+
+        return merge(l1, l2);
     }
-  
-  }
 
-  // Sort a linked list of 0s, 1s and 2s
+    private ListNode merge(ListNode l1, ListNode l2) {
+        ListNode dummy = new ListNode(0);
+        ListNode p = dummy;
 
-  class Solution {
-    static Node segregate(Node head) {
-        Node zeroHead=new Node(-1);
-        Node oneHead=new Node(-1);
-        Node twoHead=new Node(-1);
-        Node zero=zeroHead;
-        Node one=oneHead;
-        Node two=twoHead;
-        
+        while (l1 != null && l2 != null) {
+            if (l1.val < l2.val) {
+                p.next = l1;
+                l1 = l1.next;
+            } else {
+                p.next = l2;
+                l2 = l2.next;
+            }
+            p = p.next;
+        }
+
+        if (l1 != null) {
+            p.next = l1;
+        }
+
+        if (l2 != null) {
+            p.next = l2;
+        }
+
+        return dummy.next;
+    }
+}
+
+// Sort a Linked List of 0s, 1s, and 2s
+class SortZeroOneTwo {
+    public Node segregate(Node head) {
+        Node zeroHead = new Node(-1);
+        Node oneHead = new Node(-1);
+        Node twoHead = new Node(-1);
+        Node zero = zeroHead;
+        Node one = oneHead;
+        Node two = twoHead;
+
         Node temp = head;
-        while(temp != null){
-              if(temp.data==0){
-                  zero.next=temp;
-                  zero=zero.next;
-              }else if(temp.data==1){
-                  one.next=temp;
-                  one=one.next;
-              }else{
-                  two.next=temp;
-                  two=two.next;
-              }
-              temp=temp.next;
+
+        while (temp != null) {
+            if (temp.data == 0) {
+                zero.next = temp;
+                zero = zero.next;
+            } else if (temp.data == 1) {
+                one.next = temp;
+                one = one.next;
+            } else {
+                two.next = temp;
+                two = two.next;
+            }
+            temp = temp.next;
         }
-        zero.next=(oneHead.next!=null)?oneHead.next:twoHead.next;
-         one.next=twoHead.next;
-          two.next=null;
-          return zeroHead.next;
+
+        zero.next = (oneHead.next != null) ? oneHead.next : twoHead.next;
+        one.next = twoHead.next;
+        two.next = null;
+
+        return zeroHead.next;
     }
 }
 
 // Intersection of Two Linked Lists
-
-public class Solution {
+class IntersectionOfTwoLinkedLists {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        if(headA == null || headB == null) return null;
+        if (headA == null || headB == null) return null;
+
         ListNode temp1 = headA;
         ListNode temp2 = headB;
-        while(temp1 != temp2) {
-            temp1 = temp1 == null? headB : temp1.next;
-            temp2 = temp2 == null? headA : temp2.next;
+
+        while (temp1 != temp2) {
+            temp1 = (temp1 == null) ? headB : temp1.next;
+            temp2 = (temp2 == null) ? headA : temp2.next;
         }
+
         return temp1;
     }
 }
 
 // Add 1 to a Linked List Number
-
-class Solution {
+class AddOneToLinkedList {
     private int addOneHelper(Node head) {
-       if (head == null) {
-           return 1;  
-       }
-       
-       int carry = addOneHelper(head.next);
-       int sum = head.data + carry;
-       head.data = sum % 10;
-       
-       return sum / 10; 
-   }
-   
-   public Node addOne(Node head) {
-       int carry = addOneHelper(head);
-       
-       if (carry > 0) {
-           Node newHead = new Node(carry);
-           newHead.next = head;
-           return newHead;
-       }
-       return head;
-   }
+        if (head == null) {
+            return 1;
+        }
+
+        int carry = addOneHelper(head.next);
+        int sum = head.data + carry;
+        head.data = sum % 10;
+
+        return sum / 10;
+    }
+
+    public Node addOne(Node head) {
+        int carry = addOneHelper(head);
+
+        if (carry > 0) {
+            Node newHead = new Node(carry);
+            newHead.next = head;
+            return newHead;
+        }
+
+        return head;
+    }
 }
 
 // Add Two Numbers
-
-class Solution {
+class AddTwoNumbers {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode dummyHead = new ListNode(0);
         ListNode tail = dummyHead;
