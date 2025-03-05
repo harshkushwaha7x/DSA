@@ -311,3 +311,31 @@ public class Solution {
         return temp1;
     }
 }
+
+// Add 1 to a Linked List Number
+
+class Solution {
+    private int addOneHelper(Node head) {
+       if (head == null) {
+           return 1;  
+       }
+       
+       int carry = addOneHelper(head.next);
+       int sum = head.data + carry;
+       head.data = sum % 10;
+       
+       return sum / 10; 
+   }
+   
+   public Node addOne(Node head) {
+       int carry = addOneHelper(head);
+       
+       if (carry > 0) {
+           Node newHead = new Node(carry);
+           newHead.next = head;
+           return newHead;
+       }
+       return head;
+   }
+}
+
