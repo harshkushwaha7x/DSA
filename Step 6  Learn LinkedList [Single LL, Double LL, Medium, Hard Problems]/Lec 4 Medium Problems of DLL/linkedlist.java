@@ -22,3 +22,32 @@ class Solution {
         return dummy.next;
     }
 }
+
+// Find pairs with given sum in doubly linked list
+
+class Solution {
+    public static ArrayList<ArrayList<Integer>> findPairsWithGivenSum(int target, Node head) {
+        Node last=head;
+        Node first=head;
+        ArrayList<ArrayList<Integer>> ans=new ArrayList<>();
+        if(head==null || head.next==null)return ans;
+        while(last.next!=null){
+            last=last.next;
+        }
+        while(first.data<last.data){
+            ArrayList<Integer>temp=new ArrayList<>();
+            if(first.data+last.data==target){
+                temp.add(first.data);
+                temp.add(last.data);
+                ans.add(temp);
+                first=first.next;
+                last=last.prev;
+            }
+            else if(first.data+last.data>target)
+            last=last.prev;
+            else
+            first=first.next;
+        }
+        return ans;
+    }
+}
