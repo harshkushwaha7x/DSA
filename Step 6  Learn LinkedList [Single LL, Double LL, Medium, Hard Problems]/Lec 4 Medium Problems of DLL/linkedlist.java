@@ -51,3 +51,26 @@ class Solution {
         return ans;
     }
 }
+
+// Remove duplicates from a sorted doubly linked list
+
+class Solution {
+    Node removeDuplicates(Node head) {
+        if (head == null || head.next == null) return head; 
+        Node temp = head;
+        while (temp != null && temp.next != null) {
+            Node t = temp;
+            while (t.next != null && t.data == t.next.data) {
+                t = t.next;  
+            }
+
+            temp.next = t.next;  
+            if (t.next != null) {
+                t.next.prev = temp;  
+            }
+
+            temp = temp.next;  
+        }
+        return head;
+    }
+}
