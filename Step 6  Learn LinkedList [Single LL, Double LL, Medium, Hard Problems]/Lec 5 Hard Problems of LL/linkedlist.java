@@ -1,6 +1,6 @@
 // Reverse Nodes in k-Group
 
-class Solution {
+class ReverseKGroup {
     public ListNode reverseKGroup(ListNode head, int k) {
         if (head == null || k == 1) {
             return head;
@@ -46,7 +46,7 @@ class Solution {
 
 // Rotate List
 
-class Solution {
+class RotateList {
     public ListNode rotateRight(ListNode head, int k) {
         if (head == null || head.next == null || k == 0) {
             return head;
@@ -77,7 +77,7 @@ class Solution {
 
 // Flattening a Linked List
 
-class Solution {
+class FlattenLinkedList {
     Node flatten(Node root) {
         if(root==null || root.next==null) return root;
         while(root.next!=null){
@@ -111,7 +111,7 @@ class Solution {
 
 // Copy List with Random Pointer
 
-public class Solution {
+class CopyListWithRandomPointer {
     public Node copyRandomList(Node head) {
         if (head == null) return null;
         
