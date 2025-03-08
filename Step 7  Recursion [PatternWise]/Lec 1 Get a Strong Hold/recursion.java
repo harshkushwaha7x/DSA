@@ -90,3 +90,27 @@ class Solution {
         }
     }
 }
+
+// Sort a stack
+
+class GfG {
+    public Stack<Integer> sort(Stack<Integer> s) {
+        if (!s.isEmpty()) {
+            int temp = s.pop(); 
+            sort(s); 
+            insertSorted(s, temp); 
+        }
+        return s;
+    }
+
+    private void insertSorted(Stack<Integer> s, int temp) {
+        if (s.isEmpty() || s.peek() <= temp) {
+            s.push(temp); 
+            return;
+        }
+        
+        int top = s.pop(); 
+        insertSorted(s, temp); 
+        s.push(top); 
+    }
+}
