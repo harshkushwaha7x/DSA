@@ -115,3 +115,23 @@ class GfG {
     }
 }
 
+// Reverse a Stack
+
+class Solution
+{ 
+    static void reverse(Stack<Integer> s)
+    {
+        int size = s.size();
+        int i = 0;
+        int j = size - 1;
+        
+        while (i < j) {  
+            int temp = s.get(i);  
+            s.set(i, s.get(j));   
+            s.set(j, temp);       
+            i++;
+            j--;
+            
+        }
+    }
+}
