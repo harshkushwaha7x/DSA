@@ -1,6 +1,8 @@
-//  String to Integer (atoi)
+import java.util.Stack;
 
-class Solution {
+// String to Integer (atoi)
+
+class StringToInteger {
     public int myAtoi(String s) {
         s = s.trim();
         if (s.isEmpty()) {
@@ -32,7 +34,7 @@ class Solution {
 
 // Pow(x, n)
 
-class Solution {
+class PowerXN {
     public double powerX(double x, long n){
         
         if(x == 0) return 0;
@@ -63,7 +65,7 @@ class Solution {
 
 // Count Good Numbers
 
-class Solution {
+class CountGoodNumbers {
     
     public long MOD = 1_000_000_007;
     public int countGoodNumbers(long n) {
@@ -93,7 +95,7 @@ class Solution {
 
 // Sort a stack
 
-class GfG {
+class SortStack {
     public Stack<Integer> sort(Stack<Integer> s) {
         if (!s.isEmpty()) {
             int temp = s.pop(); 
@@ -117,8 +119,7 @@ class GfG {
 
 // Reverse a Stack
 
-class Solution
-{ 
+class ReverseStack { 
     static void reverse(Stack<Integer> s)
     {
         int size = s.size();
