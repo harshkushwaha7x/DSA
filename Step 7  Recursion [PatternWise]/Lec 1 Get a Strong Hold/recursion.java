@@ -30,3 +30,34 @@ class Solution {
     }
 }
 
+// Pow(x, n)
+
+class Solution {
+    public double powerX(double x, long n){
+        
+        if(x == 0) return 0;
+        if(n == 0) return 1;
+        if(n%2 == 0){
+            return powerX(x*x, n/2); 
+        }
+        else{
+            return x * powerX(x*x, (n-1)/2); 
+        }
+        
+    }
+
+    public double myPow(double x, int n) {
+        double pow = 0;
+        long absN = n;  
+        if(n < 0){
+            pow = 1.0 / powerX(x, -absN);
+            
+        }
+        else{
+            pow = powerX(x, absN);
+        }
+        return pow;
+
+    }
+}
+
