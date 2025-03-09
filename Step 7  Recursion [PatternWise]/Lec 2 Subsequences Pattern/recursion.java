@@ -62,3 +62,28 @@ public class recursion {
     }
 }
 
+// Generate Parentheses
+
+class Solution {
+    private void generateAllCombination(List<String> result, int n,  StringBuilder curr, int open, int close){
+        if(open == close && open == n){
+            result.add(curr.toString());
+            return;
+        }
+        if(open < n){
+            generateAllCombination(result, n,  curr.append("("), open + 1, close);
+            curr.deleteCharAt(curr.length()-1);
+        }
+        if(close < open){
+            generateAllCombination(result, n,  curr.append(")"), open, close + 1);
+            curr.deleteCharAt(curr.length()-1);
+        }
+    }
+
+    public List<String> generateParenthesis(int n) {
+        int open = 0, close = 0;
+        List<String> result = new ArrayList<>();
+        generateAllCombination(result, n,  new StringBuilder(), open, close);
+        return result;
+    }
+}
