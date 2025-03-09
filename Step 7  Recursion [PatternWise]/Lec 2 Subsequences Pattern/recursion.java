@@ -143,3 +143,29 @@ class Solution {
        return str2;
     }
 }
+
+// Perfect Sum Problem
+
+class Solution {
+    public int perfectSum(int[] nums, int target) {
+         Map<String, Integer> memo = new HashMap<>();
+        return solve(nums,target,0,0,memo);
+    }
+    
+    public static int solve(int[] nums,int target,int sum,int index, Map<String, Integer> memo){
+       if (index == nums.length) {
+            return sum == target ? 1 : 0;
+        }
+        
+        String key = index + "," + sum;
+        if (memo.containsKey(key)) {
+            return memo.get(key);
+        }
+        int pick=solve(nums,target,sum+nums[index],index+1,memo);
+        int notPick=solve(nums,target,sum,index+1,memo);
+        int result= pick+notPick;
+        memo.put(key,result);
+        return result;
+        
+    }
+}
