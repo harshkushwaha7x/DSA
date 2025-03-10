@@ -224,3 +224,26 @@ class Solution {
         return res;
     }
 }
+
+// Subset Sum
+
+class Solution {
+    public ArrayList<Integer> subsetSums(int[] arr) {
+        ArrayList<Integer> subsetList = new ArrayList<>();
+        pick(0, 0, arr, subsetList, arr.length);
+        Collections.sort(subsetList);
+        return subsetList;
+    }
+    
+    public void pick(int index, int sum, int[] arr, ArrayList<Integer> subsetList, int n) {
+        if (index == n) {
+            subsetList.add(sum);
+            return;
+        }
+        
+        pick(index + 1, sum + arr[index], arr, subsetList, n);
+        
+        pick(index + 1, sum, arr, subsetList, n);
+    }
+}
+
