@@ -172,3 +172,35 @@ class Solution {
         return true;
     }
 }
+
+// Rat in a Maze Problem - I
+
+class Solution {
+    private void solve(int r,int c,ArrayList<ArrayList<Integer>> mat,int n,ArrayList<String> ans,String move,boolean[][] visited,int[] di,int[] dj){
+        if(r==n-1 && c==n-1){
+            ans.add(move);
+            return;
+        }
+        String dir="DLRU";
+        for(int i=0;i<4;i++){
+            int nexti=r+di[i];
+            int nextj=c+dj[i];
+            if(nexti>=0 && nextj>=0&& nexti<n&& nextj<n&& !visited[nexti][nextj]&&mat.get(nexti).get(nextj)==1){
+                visited[nexti][nextj]=true;
+                solve(nexti,nextj,mat,n,ans,move+dir.charAt(i),visited,di,dj);
+                visited[nexti][nextj]=false;
+            }
+        }
+    }
+    public ArrayList<String> findPath(ArrayList<ArrayList<Integer>> mat) {
+        int n=mat.size();
+        ArrayList<String> res=new ArrayList<>();
+        if (mat.get(0).get(0) == 0 || mat.get(n - 1).get(n - 1) == 0) return res;
+        boolean[][] visited=new boolean[n][n];
+        int di[]=new int[]{1,0,0,-1};
+        int dj[]=new int[]{0,-1,1,0};
+        visited[0][0]=true; 
+        solve(0,0,mat,n,res,"",visited,di,dj);
+        return res;
+    }
+}
