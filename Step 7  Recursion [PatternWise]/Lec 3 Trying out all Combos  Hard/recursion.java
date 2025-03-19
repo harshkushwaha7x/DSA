@@ -1,6 +1,5 @@
-//Palindrome Partitioning
-
-class Solution {
+// Palindrome Partitioning
+class PalindromePartitioning {
     public List<List<String>> partition(String s) {
         List<List<String>> res = new ArrayList<>();
         List<String> list = new ArrayList<>();
@@ -34,8 +33,7 @@ class Solution {
 }
 
 // Word Search
-
-class Solution {
+class WordSearch {
     public boolean exist(char[][] board, String word) {
         int m = board.length, n = board[0].length;
         if (m*n < word.length())
@@ -102,8 +100,7 @@ class Solution {
 }
 
 // N-Queens
-
-class Solution {
+class NQueens {
     public List<List<String>> solveNQueens(int n) {
         
         char [][] board = new char[n][n];
@@ -174,8 +171,7 @@ class Solution {
 }
 
 // Rat in a Maze Problem - I
-
-class Solution {
+class RatInAMaze {
     private void solve(int r,int c,ArrayList<ArrayList<Integer>> mat,int n,ArrayList<String> ans,String move,boolean[][] visited,int[] di,int[] dj){
         if(r==n-1 && c==n-1){
             ans.add(move);
@@ -206,8 +202,7 @@ class Solution {
 }
 
 // Word Break
-
-class Solution {
+class WordBreak {
     public boolean wordBreak(String s, List<String> wordDict) {
         return recWay1(s, wordDict);
     }
@@ -259,8 +254,7 @@ class Solution {
 }
 
 // M-Coloring Problem
-
-class Solution {
+class MColoringProblem {
     boolean graphColoring(int v, List<int[]> edges, int m) {
         // code here
         int[] nodeColor = new int[v];
@@ -289,8 +283,7 @@ class Solution {
 }
 
 // Sudoku Solver
-
-class Solution {
+class SudokuSolver {
     public void solveSudoku(char[][] board) {
         solve(board);
     }
@@ -332,8 +325,7 @@ class Solution {
 }
 
 // Expression Add Operators
-
-class Solution {
+class ExpressionAddOperators {
     public List<String> addOperators(String num, int target) {
         List<String>ans=new ArrayList<>();
         solve(0,num,target,"",ans,0,0);
