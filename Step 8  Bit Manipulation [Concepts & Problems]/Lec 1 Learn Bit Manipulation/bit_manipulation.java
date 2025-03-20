@@ -9,3 +9,23 @@ class Solution {
     }
 }
 
+// K-th Bit is Set or Not
+
+class CheckBit {
+    static boolean checkKthBit(int n, int k) {
+        StringBuilder str=new StringBuilder();
+        while(n!=1){
+            str.append(n%2);
+            n=n/2;
+        }
+        for(int i=0;i<str.length();i++){
+            if(i==k){
+                if(str.charAt(i)=='1'){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
+
