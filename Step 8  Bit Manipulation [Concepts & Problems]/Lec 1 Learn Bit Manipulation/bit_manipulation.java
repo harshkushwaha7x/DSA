@@ -12,15 +12,12 @@ class Solution {
 // K-th Bit is Set or Not
 
 class CheckBit {
-    // Function to check if Kth bit is set or not.
     static boolean checkKthBit(int n, int k) {
-        // Your code here
         StringBuilder str=new StringBuilder();
         while(n!=1){
             str.append(n%2);
             n=n/2;
         }
-       // String str1=str.reverse();
         for(int i=0;i<str.length();i++){
             if(i==k){
                 if(str.charAt(i)=='1'){
@@ -29,6 +26,19 @@ class CheckBit {
             }
         }
         return false;
+    }
+}
+
+// Odd or Even
+
+class Solution {
+    static boolean isEven(int n) {
+          
+          if((n&1)==0){
+              return true;
+          }
+          
+          return false;
     }
 }
 
