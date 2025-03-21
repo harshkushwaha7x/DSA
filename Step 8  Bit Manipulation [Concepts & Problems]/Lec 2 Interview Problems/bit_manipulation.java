@@ -61,3 +61,29 @@ class Solution {
     }
 }
 
+// Two numbers with odd occurrences
+
+class Solution
+{
+    public int[] twoOddNum(int arr[], int n)
+    {
+        // code here
+        Arrays.sort(arr);
+        int res[]=new int[2];
+        int temp=1;
+        int ans=arr[0];
+        for(int i=1;i<n;i++){
+            if(arr[i]!=arr[i-1]){
+                if(ans!=0) {
+                    res[temp]=arr[i-1];
+                    temp--;
+                }
+                ans=arr[i];
+            }else{
+                ans=ans^arr[i];
+            }
+        }
+        if(temp!=-1) res[temp]=arr[n-1];
+        return res;
+    }
+}
