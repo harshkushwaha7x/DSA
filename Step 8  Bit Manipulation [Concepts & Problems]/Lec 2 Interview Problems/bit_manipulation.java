@@ -1,3 +1,7 @@
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 // Minimum Bit Flips to Convert Number
 
 class BitFlipConverter {
