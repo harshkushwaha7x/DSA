@@ -107,3 +107,11 @@ class Solution{
         return res;
     }
 }
+
+// Set the rightmost unset bit
+
+class Solution {
+    static int setBit(int n) {
+        return (n | (n + 1));
+    }
+}
