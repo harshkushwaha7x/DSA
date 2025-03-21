@@ -46,3 +46,18 @@ class Solution {
         op.remove(op.size() - 1);
     }
 }
+
+// Find XOR of numbers from L to R.
+
+class Solution {
+    private static int solve(int n){
+        if(n%4==1) return 1;
+        else if(n%4==2)return n+1;
+        else if(n%4==3)return 0;
+        return n;
+    }
+    public static int findXOR(int l, int r) {
+        return solve(l-1)^solve(r);
+    }
+}
+
