@@ -56,3 +56,27 @@ public class Solution {
         return count;
     }
 }
+
+// Prime Factorization using Sieve
+
+class Solution {
+    static void sieve() {}
+
+    static List<Integer> findPrimeFactors(int N) {
+        List<Integer> list = new ArrayList<>();
+        for (int i = 2; i<=Math.sqrt(N); i++) {
+            if (N % i == 0){
+                while(N % i == 0){
+                    list.add(i);
+                    N/=i;
+                }
+            }
+        }
+        if (N != 0 && N != 1)
+        list.add(N);
+        
+        return list;
+        
+    }
+}
+
