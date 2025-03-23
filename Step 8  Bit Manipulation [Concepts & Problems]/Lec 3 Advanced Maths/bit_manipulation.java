@@ -1,10 +1,12 @@
 // Prime Factors
 
+import java.util.ArrayList;
+import java.util.List;
+
 class Solution
 {
     public int[] AllPrimeFactors(int n)
     {
-        // code here
         int i=2;
         List<Integer>list=new ArrayList<>();
         while(n!=1){
@@ -20,5 +22,18 @@ class Solution
             res[j]=list.get(j);
         }
         return res;
+    }
+}
+
+// All divisors of a Number
+
+class Solution {
+    public static void print_divisors(int n) {
+        for(int i=1;i<Math.sqrt(n);i++){
+            if(n%i==0)System.out.print(i+" ");
+        }
+         for(int i=(int)(Math.sqrt(n)+0.99);i<=n;i++){
+            if(n%i==0)System.out.print(i+" ");
+        }
     }
 }
