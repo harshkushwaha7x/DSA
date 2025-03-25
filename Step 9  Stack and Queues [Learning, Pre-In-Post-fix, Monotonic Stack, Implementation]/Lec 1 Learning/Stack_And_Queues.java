@@ -1,10 +1,10 @@
 // Implement stack using array
 
-class MyStack {
+class ArrayStack {
     private int[] arr;
     private int top;
 
-    public MyStack() {
+    public ArrayStack() {
         arr = new int[1000];
         top = -1;
     }
@@ -21,34 +21,30 @@ class MyStack {
 
 // Queue Using Array
 
-class MyQueue {
- 
+class ArrayQueue {
     int front, rear;
-int arr[] = new int[100005];
+    int arr[] = new int[100005];
  
-    MyQueue()
-{
-front=0;
-rear=0;
-}
- 
-void push(int x)
-{
-    arr[rear++]=x;
-} 
- 
-int pop() {
-        return (front == rear) ? -1 : arr[front++];
+    ArrayQueue() {
+        front=0;
+        rear=0;
     }
  
+    void push(int x) {
+        arr[rear++]=x;
+    } 
+ 
+    int pop() {
+        return (front == rear) ? -1 : arr[front++];
+    }
 }
 
 // Implement Stack using Queues
 
-class MyStack {
+class StackUsingQueues {
     private Queue<Integer> q = new LinkedList<>();
 
-    MyStack() {
+    StackUsingQueues() {
         
     }
 
@@ -77,13 +73,11 @@ class MyStack {
 
 // Implement Queue using Stacks
 
-
-
-class MyQueue {
+class QueueUsingStacks {
     private Stack<Integer> s1;
     private Stack<Integer> s2;
 
-    public MyQueue() {
+    public QueueUsingStacks() {
         s1 = new Stack<>();
         s2 = new Stack<>();
     }
@@ -113,7 +107,7 @@ class MyQueue {
 
 // Stack using Linked List
 
-class MyStack {
+class LinkedListStack {
     StackNode top;
     void push(int a) {
         StackNode newNode=new StackNode(a);
@@ -130,11 +124,9 @@ class MyStack {
 
 // Queue using Linked List
 
-class MyQueue
-{
+class LinkedListQueue {
     QueueNode front, rear;
-    void push(int a)
-    {
+    void push(int a) {
         QueueNode newNode=new QueueNode(a);
         if(front==null){
             front=newNode;
@@ -145,8 +137,7 @@ class MyQueue
            rear=newNode;
         } 
     }
-    int pop()
-    {
+    int pop() {
         if(front==null)return -1;
         int pop=front.data;
         front=front.next;
@@ -156,7 +147,7 @@ class MyQueue
 
 // Valid Parentheses
 
-class Solution {
+class ValidParentheses {
     public boolean isValid(String s) {
         Stack<Character> st = new Stack<>();
         for(int i = 0;i<s.length();i++) {
@@ -170,5 +161,42 @@ class Solution {
         }
         if(st.isEmpty()) return true;
         else return  false;
+    }
+}
+
+// Min Stack
+
+class MinStack {
+    private Node head;
+        
+    public void push(int x) {
+        if (head == null) 
+            head = new Node(x, x, null);
+        else 
+            head = new Node(x, Math.min(x, head.min), head);
+    }
+    
+    public void pop() {
+        head = head.next;
+    }
+    
+    public int top() {
+        return head.val;
+    }
+    
+    public int getMin() {
+        return head.min;
+    }
+        
+    private class Node {
+        int val;
+        int min;
+        Node next;
+            
+        private Node(int val, int min, Node next) {
+            this.val = val;
+            this.min = min;
+            this.next = next;
+        }
     }
 }
