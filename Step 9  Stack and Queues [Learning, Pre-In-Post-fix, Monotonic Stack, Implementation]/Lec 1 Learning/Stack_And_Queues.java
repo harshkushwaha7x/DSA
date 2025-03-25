@@ -1,3 +1,7 @@
+import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
+
 // Implement stack using array
 
 class ArrayStack {
@@ -126,22 +130,33 @@ class LinkedListStack {
 
 class LinkedListQueue {
     QueueNode front, rear;
+
     void push(int a) {
-        QueueNode newNode=new QueueNode(a);
-        if(front==null){
-            front=newNode;
-            rear=newNode;
+        QueueNode newNode = new QueueNode(a);
+        if (front == null) {
+            front = newNode;
+            rear = newNode;
+        } else {
+            rear.next = newNode;
+            rear = newNode;
         }
-        else{
-           rear.next=newNode;
-           rear=newNode;
-        } 
     }
+
     int pop() {
-        if(front==null)return -1;
-        int pop=front.data;
-        front=front.next;
+        if (front == null) return -1;
+        int pop = front.data;
+        front = front.next;
         return pop;
+    }
+}
+
+class QueueNode {
+    int data;
+    QueueNode next;
+
+    QueueNode(int data) {
+        this.data = data;
+        this.next = null;
     }
 }
 
