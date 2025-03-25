@@ -127,3 +127,29 @@ class MyStack {
         return pop;
     }
 }
+
+// Queue using Linked List
+
+class MyQueue
+{
+    QueueNode front, rear;
+    void push(int a)
+    {
+        QueueNode newNode=new QueueNode(a);
+        if(front==null){
+            front=newNode;
+            rear=newNode;
+        }
+        else{
+           rear.next=newNode;
+           rear=newNode;
+        } 
+    }
+    int pop()
+    {
+        if(front==null)return -1;
+        int pop=front.data;
+        front=front.next;
+        return pop;
+    }
+}
