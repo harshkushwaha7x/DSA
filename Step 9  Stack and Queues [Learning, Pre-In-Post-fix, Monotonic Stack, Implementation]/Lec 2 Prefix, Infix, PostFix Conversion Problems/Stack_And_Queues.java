@@ -67,3 +67,20 @@ class Solution {
         return stack.pop();
     }
 }
+
+// Postfix to Prefix Conversion
+
+class Solution {
+    static String postToPre(String post_exp) {
+        Stack<String> stack=new Stack<>();
+        for(char ch:post_exp.toCharArray()){
+            if(Character.isLetterOrDigit(ch))stack.push(String.valueOf(ch));
+            else{
+                String t1=stack.pop();
+                String t2=stack.pop();
+                stack.push(ch+t2+t1);
+            }
+        }
+        return stack.pop();
+    }
+}
