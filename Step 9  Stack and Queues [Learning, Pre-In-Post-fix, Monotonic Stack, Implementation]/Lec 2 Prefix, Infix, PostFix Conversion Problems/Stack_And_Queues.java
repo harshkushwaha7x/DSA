@@ -1,6 +1,7 @@
 // Infix to Postfix
+import java.util.Stack;
 
-class Solution {
+class InfixToPostfixConverter {
     public static int priority(char ch) {
         if (ch == '+' || ch == '-') return 1;
         if (ch == '*' || ch == '/') return 2;
@@ -33,8 +34,7 @@ class Solution {
 } 
 
 // Prefix to Infix Conversion
-
-class Solution {
+class PrefixToInfixConverter {
     static String preToInfix(String pre_exp) {
         Stack<String> stack=new Stack<>();
         for(int i=pre_exp.length()-1;i>=0;i--){
@@ -51,8 +51,7 @@ class Solution {
 }
 
 // Prefix to Postfix Conversion
-
-class Solution {
+class PrefixToPostfixConverter {
     static String preToPost(String pre_exp) {
         Stack<String> stack=new Stack<>();
         for(int i=pre_exp.length()-1;i>=0;i--){
@@ -69,8 +68,7 @@ class Solution {
 }
 
 // Postfix to Prefix Conversion
-
-class Solution {
+class PostfixToPrefixConverter {
     static String postToPre(String post_exp) {
         Stack<String> stack=new Stack<>();
         for(char ch:post_exp.toCharArray()){
@@ -86,8 +84,7 @@ class Solution {
 }
 
 // Postfix to Infix Conversion
-
-class Solution {
+class PostfixToInfixConverter {
     static String postToInfix(String exp) {
         Stack<String> stack=new Stack<>();
         for(char ch:exp.toCharArray()){
@@ -102,9 +99,8 @@ class Solution {
     }
 }
 
-// Infix to Postfix
-
-class Solution {
+// Infix to Postfix (duplicate - can be removed)
+class InfixToPostfixConverter2 {
     public static int priority(char ch) {
         if (ch == '+' || ch == '-') return 1;
         if (ch == '*' || ch == '/') return 2;
@@ -134,4 +130,4 @@ class Solution {
         }
         return ans.toString();
     }
-} 
+}
