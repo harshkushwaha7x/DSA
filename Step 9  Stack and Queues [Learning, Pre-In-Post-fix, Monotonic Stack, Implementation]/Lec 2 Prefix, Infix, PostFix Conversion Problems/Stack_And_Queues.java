@@ -84,3 +84,20 @@ class Solution {
         return stack.pop();
     }
 }
+
+// Postfix to Infix Conversion
+
+class Solution {
+    static String postToInfix(String exp) {
+        Stack<String> stack=new Stack<>();
+        for(char ch:exp.toCharArray()){
+            if(Character.isLetterOrDigit(ch))stack.push(String.valueOf(ch));
+            else{
+                String t1=stack.pop();
+                String t2=stack.pop();
+                stack.push("("+t2+ch+t1+")");
+            }
+        }
+        return stack.pop();
+    }
+}
