@@ -1,6 +1,10 @@
-// Next Greater Element I
+import java.util.Stack;
+import java.util.Arrays;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
-class Solution {
+// Next Greater Element I
+class NextGreaterElementI {
     public static int findInd(int arr[],int num){
         for(int i = 0; i<arr.length; i++){
             if(arr[i]==num){
@@ -28,15 +32,11 @@ class Solution {
             }
         }
         return res;
-
-      
-        
     }
 }
 
 // Next Greater Element II
-
-class Solution {
+class NextGreaterElementII {
     public int[] nextGreaterElements(final int[] nums) {
         final int n = nums.length;
         final int[] res = new int[n];
@@ -58,8 +58,7 @@ class Solution {
 }
 
 // Number of greater elements to the right
-
-class Solution {
+class CountNextGreaterElements {
     public static int[] count_NGEs(int n, int[] arr, int queries, int[] indices) {
         Stack<Integer> asc = new Stack<>();
         Stack<Integer> desc = new Stack<>();
@@ -87,8 +86,7 @@ class Solution {
 }
 
 // Trapping Rain Water
-
-class Solution {
+class TrappingRainWater {
     public int trap(int[] height) {
         int n = height.length;
         if (n == 0) return 0;
@@ -117,8 +115,7 @@ class Solution {
 }
 
 // Sum of Subarray Minimums
-
-class Solution {
+class SumOfSubarrayMinimums {
     public int sumSubarrayMins(int[] arr) {
         int length = arr.length;
         int[] left = new int[length];
@@ -164,8 +161,7 @@ class Solution {
 }
 
 // Asteroid Collision
-
-class Solution {
+class AsteroidCollision {
     public int[] asteroidCollision(int[] asteroids) {
         Stack<Integer> stack = new Stack<>();
 
@@ -192,10 +188,8 @@ class Solution {
                     } else {
                         stack.pop();
                     }
-
                 }
             }
-
         }
 
         int[] result = new int[stack.size()];
@@ -208,8 +202,7 @@ class Solution {
 }
 
 // Sum of Subarray Ranges
-
-class Solution {
+class SumOfSubarrayRanges {
     public long subArrayRanges(int[] nums) {
         int n = nums.length;
         long ans = 0;
@@ -227,65 +220,47 @@ class Solution {
 }
 
 // Remove K Digits
-
-class Solution {
+class RemoveKDigits {
     public String removeKdigits(String num, int k) {
-        
        int len=num.length();
 
-       if(k==len)
-       {
+       if(k==len) {
         return "0";
        }
      
      Stack<Character>stack = new Stack<>();
 
-     for(int i=0;i<len;i++)
-     {
-     while(k>0 &&!stack.isEmpty() && stack.peek()>num.charAt(i))
-     {
+     for(int i=0;i<len;i++) {
+     while(k>0 &&!stack.isEmpty() && stack.peek()>num.charAt(i)) {
         stack.pop();
         k--;
      }
-
      stack.push(num.charAt(i));
-     
-
     }
 
-  while(k>0)
-  {
+  while(k>0) {
     stack.pop();
     k--;
   }
 
-
-
   StringBuilder result = new StringBuilder();
 
-  while(!stack.isEmpty())
-  {
+  while(!stack.isEmpty()) {
       result.append(stack.pop());
-
   }
-
 
   result.reverse();
 
-
-  while(result.length()>1 && result.charAt(0)=='0')
-  {
+  while(result.length()>1 && result.charAt(0)=='0') {
     result.deleteCharAt(0);
   }
 
   return result.toString();
-
-}
+    }
 }
 
 // Largest Rectangle in Histogram
-
-class Solution {
+class LargestRectangleInHistogram {
     public int largestRectangleArea(int[] arr) {
         int area = 0;
         Stack<Integer> st = new Stack<>();
@@ -317,8 +292,7 @@ class Solution {
 }
 
 // Maximal Rectangle
-
-class Solution {
+class MaximalRectangle {
     public int maximalRectangle(char[][] matrix) {
         int row = matrix.length;
         int col = matrix[0].length;
