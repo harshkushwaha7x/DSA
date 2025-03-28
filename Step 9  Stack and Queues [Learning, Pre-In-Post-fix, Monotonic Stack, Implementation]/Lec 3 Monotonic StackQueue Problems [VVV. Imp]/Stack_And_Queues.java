@@ -56,3 +56,33 @@ class Solution {
         return res;
     }
 }
+
+// Number of greater elements to the right
+
+class Solution {
+    public static int[] count_NGEs(int n, int[] arr, int queries, int[] indices) {
+        Stack<Integer> asc = new Stack<>();
+        Stack<Integer> desc = new Stack<>();
+        int[] v = new int[n];
+        int[] ans = new int[queries];
+
+        for (int i = n - 1; i >= 0; i--) {
+            int ele = arr[i];
+            while (!asc.isEmpty() && ele >= asc.peek()) {
+                desc.push(asc.pop());
+            }
+            desc.push(ele);
+            v[i] = asc.size();
+            while (!desc.isEmpty()) {
+                asc.push(desc.pop());
+            }
+        }
+
+        for (int i = 0; i < queries; i++) {
+            ans[i] = v[indices[i]];
+        }
+
+        return ans;
+    }
+}
+
