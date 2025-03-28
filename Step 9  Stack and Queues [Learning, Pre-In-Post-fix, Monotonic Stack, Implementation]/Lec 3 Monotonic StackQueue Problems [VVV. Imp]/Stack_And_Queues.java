@@ -97,19 +97,16 @@ class Solution {
         int[] right = new int[n];
         int storedWater = 0;
         
-        // Fill left array
         left[0] = height[0];
         for (int i = 1; i < n; i++) {
             left[i] = Math.max(left[i - 1], height[i]);
         }
         
-        // Fill right array
         right[n - 1] = height[n - 1];
         for (int i = n - 2; i >= 0; i--) {
             right[i] = Math.max(right[i + 1], height[i]);
         }
         
-        // Calculate trapped water
         for (int i = 0; i < n; i++) {
             int minHeight = Math.min(left[i], right[i]);
             storedWater += minHeight - height[i];
@@ -163,5 +160,49 @@ class Solution {
         }
       
         return (int) answer;
+    }
+}
+
+// Asteroid Collision
+
+class Solution {
+    public int[] asteroidCollision(int[] asteroids) {
+        Stack<Integer> stack = new Stack<>();
+
+        int i = 0;
+        while (i < asteroids.length){
+            
+            int val = asteroids[i];
+  
+            if (stack.isEmpty() || stack.peek() < 0 || val > 0){
+                stack.push(val);
+                i++;
+            }
+            else {
+                if (stack.peek() > 0 && val < 0){
+
+                    int a = stack.peek();
+                    int b = Math.abs(val); 
+
+                    if (a > b){
+                        i++;
+                    } else if (a == b) {
+                        i++;
+                        stack.pop();
+                    } else {
+                        stack.pop();
+                    }
+
+                }
+            }
+
+        }
+
+        int[] result = new int[stack.size()];
+        for (int j = 0; j < stack.size(); j++) {
+            result[j] = stack.get(j);
+        }
+
+        return result;
     }
 }
