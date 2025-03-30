@@ -6,7 +6,7 @@ import java.util.TreeMap;
 
 // Sliding Window Maximum
 
-class Solution {
+class SlidingWindowMaximum {
     public int[] maxSlidingWindow(int[] nums, int k) {
         int n = nums.length;
         int[] lmax = new int[n];
@@ -58,7 +58,7 @@ class StockSpanner {
 
 // LRU Cache
 
-class LRUCache {
+class LruCache {
     private int capacity;
     private Map<Integer,Node> map;
     private Node tail, head;
@@ -70,7 +70,7 @@ class LRUCache {
             this.value=value;
         }
     }
-    public LRUCache(int capacity) {
+    public LruCache(int capacity) {
         this.capacity=capacity;
         map=new HashMap<>();
         head=new Node(0,0);
@@ -128,7 +128,7 @@ class LRUCache {
 
 // LFU Cache
 
-class LFUCache {
+class LfuCache {
 
     private final Map<Integer, CachedElement<Integer, Integer>> elements;
 
@@ -136,7 +136,7 @@ class LFUCache {
 
     private final int capacity;
 
-    public LFUCache(int capacity) {
+    public LfuCache(int capacity) {
         this.capacity = capacity;
         this.elements = new HashMap<>(capacity);
     }
@@ -224,4 +224,3 @@ class LFUCache {
         }
     }
 }
-
