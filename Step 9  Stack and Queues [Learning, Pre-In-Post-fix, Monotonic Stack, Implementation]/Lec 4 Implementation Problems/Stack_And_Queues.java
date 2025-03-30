@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 // Sliding Window Maximum
 
 class Solution {
@@ -24,6 +26,28 @@ class Solution {
             ans[i] = Math.max(rmax[i], lmax[i + k - 1]);
         }
 
+        return ans;
+    }
+}
+
+// Online Stock Span
+
+class StockSpanner {
+    Stack<Integer> prices;
+    Stack<Integer> days; 
+    public StockSpanner() {
+        prices=new Stack<>();
+        days=new Stack<>();
+    }
+    
+    public int next(int price) {
+        int ans=1;
+        while(!prices.isEmpty() && prices.peek()<=price){
+            prices.pop();
+            ans+=days.pop();
+        }
+        prices.push(price);
+        days.push(ans);
         return ans;
     }
 }
