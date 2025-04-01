@@ -121,3 +121,47 @@ class Solution {
         return result;
     }
 }
+
+// Count Number of Nice Subarrays
+
+class Solution {
+    public int numberOfSubarrays(int[] nums, int k) {
+        int n = nums.length;
+        int[] count = new int[n + 1];
+        count[0] = 1;
+        int result = 0, oddCount = 0;
+        for (int num : nums) {
+            oddCount += num & 1;
+            if (oddCount - k >= 0) {
+                result += count[oddCount - k];
+            }
+            count[oddCount]++;
+        }
+        return result;
+    }
+}
+
+// Number of Substrings Containing All Three Characters
+
+class Solution {
+    public int numberOfSubstrings(String s) {
+        int n=s.length();
+        int cnt=0;
+        int[] arr=new int[3];
+
+        int i=n-1, j=n-1;
+        while(i>=0 && j>=0){
+            arr[s.charAt(i)-'a']++;
+
+            while(arr[0]>0 && arr[1]>0 && arr[2]>0){                  
+                    cnt+=i+1;  
+                    arr[s.charAt(j)-'a']--;
+                    j--;                
+            }
+            i--;
+        }
+
+        return cnt;
+    }
+
+}
