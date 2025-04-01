@@ -2,8 +2,7 @@ import java.util.Map;
 import java.util.HashMap;
 
 // Longest Substring Without Repeating Characters
-
-class Solution {
+class LongestSubstringWithoutRepeatingChars {
     public int lengthOfLongestSubstring(String s) {
         Map<Character, Integer> map = new HashMap<>();
         int i = 0;
@@ -29,8 +28,7 @@ class Solution {
 }
 
 // Max Consecutive Ones III
-
-class Solution {
+class MaxConsecutiveOnesIII {
     public int longestOnes(int[] nums, int k) {
         int start=0;
         int end=0;
@@ -53,8 +51,7 @@ class Solution {
 }
 
 // Find length of the longest subarray containing atmost two distinct integers
-
-class Solution {
+class LongestSubarrayWithAtMostTwoDistinct {
     public static int totalElements(Integer[] arr) {
         int l=0,r=0,maxlen=1;
         HashMap<Integer,Integer> map=new HashMap<>();
@@ -76,8 +73,7 @@ class Solution {
 }
 
 // Longest Repeating Character Replacement
-
-class Solution {
+class LongestRepeatingCharacterReplacement {
     public int characterReplacement(String s, int k) {
         int n = s.length();
         int[] count = new int[26];
@@ -103,8 +99,7 @@ class Solution {
 }
 
 // Binary Subarrays With Sum
-
-class Solution {
+class BinarySubarraysWithSum {
     public int numSubarraysWithSum(int[] nums, int goal) {
         return atMost(nums, goal) - atMost(nums, goal - 1);
     }
@@ -123,8 +118,7 @@ class Solution {
 }
 
 // Count Number of Nice Subarrays
-
-class Solution {
+class CountNumberOfNiceSubarrays {
     public int numberOfSubarrays(int[] nums, int k) {
         int n = nums.length;
         int[] count = new int[n + 1];
@@ -142,8 +136,7 @@ class Solution {
 }
 
 // Number of Substrings Containing All Three Characters
-
-class Solution {
+class SubstringsContainingAllThreeChars {
     public int numberOfSubstrings(String s) {
         int n=s.length();
         int cnt=0;
@@ -163,14 +156,11 @@ class Solution {
 
         return cnt;
     }
-
 }
 
 // Maximum Points You Can Obtain from Cards
-
-class Solution {
+class MaxPointsFromCards {
     public int maxScore(int[] cardPoints, int k) {
-      
         int lSum = 0;
         int rSum = 0;
         int maxSum =0;
