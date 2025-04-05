@@ -14,3 +14,18 @@ class Solution {
             return minHeap.peek();
     }
 }
+
+// Kth Smallest
+
+class Solution {
+    public static int kthSmallest(int[] arr, int k) {
+        PriorityQueue<Integer> q=new PriorityQueue<>(Collections.reverseOrder());
+        for(int num:arr){
+            q.add(num);
+            if(q.size()>k){
+                q.poll();
+            }
+        }
+        return q.poll();
+    }
+}
