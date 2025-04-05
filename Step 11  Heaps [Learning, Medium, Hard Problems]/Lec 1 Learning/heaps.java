@@ -91,3 +91,37 @@ class Solution {
         return true;
     }
 }
+
+// Convert Min Heap to Max Heap
+
+class Solution {
+    static void convertMinToMaxHeap(int n, int arr[]) {
+    for (int i = (n - 1) / 2; i >= 0; i--) {
+        heapify(arr, i, n);
+    }
+
+  }
+  
+  static void heapify(int[] arr, int index, int n) {
+      int largest = index;
+      int left = index * 2 + 1;
+      int right = index * 2 + 2;
+      if (left < n && arr[left] > arr[largest]) {
+          largest = left;
+      }
+      if (right < n && arr[right] > arr[largest]) {
+          largest = right;
+      }
+      if (index != largest) {
+          swap(arr, index, largest);
+          heapify(arr, largest, n);
+      }
+  }
+  
+  static void swap(int[] arr, int i, int j) {
+      int temp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = temp;
+  }
+}
+
