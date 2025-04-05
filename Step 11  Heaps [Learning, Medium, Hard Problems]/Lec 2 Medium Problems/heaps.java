@@ -129,3 +129,33 @@ class Solution {
         return mergeTwoLists(l1, l2);
     }
 }
+
+// Replace elements by its rank in the array
+
+class Solution {
+    static class RankNode{
+        int val;
+        int ind;
+        RankNode(int v,int i){
+            val =v;
+            ind=i;
+        }
+    }
+    static int[] replaceWithRank(int arr[], int N) {
+     PriorityQueue<RankNode> pq = new PriorityQueue<>((x,y)->x.val -y.val);
+     for(int i=0;i<N;i++){
+         pq.add(new RankNode(arr[i],i));
+     }
+     int pre =-1;
+     int cnt =0;
+     while(!pq.isEmpty()){
+         RankNode cur = pq.poll();
+         if(cur.val != pre){
+            cnt++;
+            pre =cur.val;
+         }
+         arr[cur.ind]= cnt;
+     }
+     return arr;
+  }
+}
