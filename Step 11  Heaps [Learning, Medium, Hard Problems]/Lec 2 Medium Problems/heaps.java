@@ -1,8 +1,11 @@
 import java.util.PriorityQueue;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 // Kth Largest Element in an Array
-
-class Solution {
+class KthLargestElementFinder {
     public int findKthLargest(int[] nums, int k) {
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
         for(int num:nums){
@@ -16,8 +19,7 @@ class Solution {
 }
 
 // Kth Smallest
-
-class Solution {
+class KthSmallestElementFinder {
     public static int kthSmallest(int[] arr, int k) {
         PriorityQueue<Integer> q=new PriorityQueue<>(Collections.reverseOrder());
         for(int num:arr){
@@ -31,30 +33,27 @@ class Solution {
 }
 
 // Merge k Sorted Arrays
-
-class Solution
-{
-    static class Node{
+class KSortedArraysMerger {
+    static class ArrayNode {
         int val,row,col;
-        Node (int val,int row,int col){
+        ArrayNode (int val,int row,int col){
             this.val=val;
             this.row=row;
             this.col=col;
         }
     }
-    public static ArrayList<Integer> mergeKArrays(int[][] arr,int k) 
-    {
-       PriorityQueue<Node> minHeap=new PriorityQueue<>(Comparator.comparingInt(a->a.val));
+    public static ArrayList<Integer> mergeKArrays(int[][] arr,int k) {
+       PriorityQueue<ArrayNode> minHeap=new PriorityQueue<>(Comparator.comparingInt(a->a.val));
        ArrayList<Integer> res=new ArrayList<>();
        for(int i=0;i<k;i++){
-           minHeap.add(new Node(arr[i][0],i,0));
+           minHeap.add(new ArrayNode(arr[i][0],i,0));
        }
        while(!minHeap.isEmpty()){
-           Node current=minHeap.poll();
+           ArrayNode current=minHeap.poll();
            res.add(current.val);
            int nextCol=current.col+1;
            if(nextCol<k){
-               minHeap.add(new Node(arr[current.row][nextCol],current.row,nextCol));
+               minHeap.add(new ArrayNode(arr[current.row][nextCol],current.row,nextCol));
            }
        }
        return res;
@@ -62,27 +61,21 @@ class Solution
 }
 
 // Merge k Sorted Lists
-
-class Solution {
-    public ListNode mergeTwoLists(ListNode list1, ListNode list2)
-    {
+class KSortedListsMerger {
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         ListNode merge = new ListNode(0);
         ListNode curr = merge;
 
-        while(list1 != null && list2 != null)
-        {
-            if(list1.val < list2.val)
-            {
+        while(list1 != null && list2 != null) {
+            if(list1.val < list2.val) {
                 curr.next = list1;
                 list1 = list1.next;
             }
-            else if(list1.val > list2.val) 
-            {
+            else if(list1.val > list2.val) {
                 curr.next = list2;
                 list2 = list2.next;
             }
-            else
-            {
+            else {
                 curr.next = list1;
                 list1 = list1.next;
 
@@ -93,31 +86,24 @@ class Solution {
             }
             curr = curr.next;
         }
-        if (list1 != null) 
-        {
+        if (list1 != null) {
             curr.next = list1;
-        } 
-        else 
-        {
+        } else {
             curr.next = list2;
         }
         return merge.next;
     }
 
-    public ListNode mergeKLists(ListNode[] lists)
-    {
-        if (lists.length == 0) 
-        {
+    public ListNode mergeKLists(ListNode[] lists) {
+        if (lists.length == 0) {
             return null;
         }
 
         return mergeKListsHelper(lists, 0, lists.length - 1);
     }
 
-    private ListNode mergeKListsHelper(ListNode[] lists, int left, int right)
-    {
-        if (left == right) 
-        {
+    private ListNode mergeKListsHelper(ListNode[] lists, int left, int right) {
+        if (left == right) {
             return lists[left];
         }
 
@@ -131,9 +117,8 @@ class Solution {
 }
 
 // Replace elements by its rank in the array
-
-class Solution {
-    static class RankNode{
+class ArrayRankReplacer {
+    static class RankNode {
         int val;
         int ind;
         RankNode(int v,int i){
@@ -161,8 +146,7 @@ class Solution {
 }
 
 // Task Scheduler
-
-class Solution {
+class TaskScheduler {
     public int leastInterval(char[] tasks, int n) {
         int[] cnt = new int[26];
         for (char ch : tasks) {
@@ -181,9 +165,8 @@ class Solution {
 }
 
 // Hand of Straights
-
-class Solution {
-    public boolean findsucessors(int[] hand, int groupSize, int i, int n) {
+class StraightHandChecker {
+    public boolean findSuccessors(int[] hand, int groupSize, int i, int n) {
         int f = hand[i] + 1;
         hand[i] = -1;
         int count = 1;
@@ -210,7 +193,7 @@ class Solution {
         int i = 0;
         for (; i < n; i++) {
             if (hand[i] >= 0) {
-                if (!findsucessors(hand, groupSize, i, n))
+                if (!findSuccessors(hand, groupSize, i, n))
                     return false;
             }
         }
