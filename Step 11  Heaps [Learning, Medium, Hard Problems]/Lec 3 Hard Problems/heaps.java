@@ -100,3 +100,26 @@ class Twitter {
         }
     }
 }
+
+// Rod Cutting
+
+class Solution {
+    public int cutRod(int[] price) {
+        int n=price.length;
+        int prev[]=new int[n+1];
+        for(int N=0;N<=n;N++){
+            prev[N]=N*price[0];
+        }
+        for(int ind=1;ind<n;ind++){
+            for(int N=0;N<=n;N++){
+                int notTake=0+prev[N];
+                
+                int take=Integer.MIN_VALUE;
+                int rodLen=ind+1;
+                if(rodLen<=N)take=price[ind]+prev[N-rodLen];
+                prev[N]=Math.max(take,notTake);
+            }
+        }
+        return prev[n];
+    }
+} 
