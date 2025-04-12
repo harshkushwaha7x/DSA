@@ -1,7 +1,6 @@
 import java.util.*;
 
 // Design Twitter
-
 class Twitter {
     class Tweet {
         int userId;
@@ -14,15 +13,18 @@ class Twitter {
             this.next = null;
         }
     }
+    
     class TweetBox {
         private Tweet head;
         private Tweet tail;
         int size;
+        
         public TweetBox() {
             this.size = 0;
             this.head = null;
             this.tail = null;
         }
+        
         public void addTweet(Tweet tweet) {
             if(head == null && tail == null) {
                 head = tweet;
@@ -33,6 +35,7 @@ class Twitter {
             }
             size++;
         }
+        
         public List<Integer> getTweet(List<Integer> feedList, int userId) {
             if(size == 0) {
                 return feedList;
@@ -52,8 +55,10 @@ class Twitter {
             return feedList;
         }
     }
+    
     TweetBox tweetBox;
     Map<Integer, List<Integer>> followingList;
+    
     public Twitter() {
         tweetBox = new TweetBox();
         followingList = new HashMap<>();
@@ -102,8 +107,7 @@ class Twitter {
 }
 
 // Rod Cutting
-
-class Solution {
+class RodCuttingSolution {
     public int cutRod(int[] price) {
         int n=price.length;
         int prev[]=new int[n+1];
@@ -125,12 +129,11 @@ class Solution {
 } 
 
 // Kth Largest Element in a Stream
-
-class KthLargest {
+class KthLargestElementInStream {
     private PriorityQueue<Integer> heap = new PriorityQueue<>();
     private int k;
   
-    public KthLargest(int k, int[] nums) {
+    public KthLargestElementInStream(int k, int[] nums) {
       this.k = k;
       for (var n : nums) add(n);
     }
@@ -140,10 +143,9 @@ class KthLargest {
       if (heap.size() > k) heap.poll();
       return heap.peek();
     }
-  }
+}
 
 // Find Median from Data Stream
-
 class MedianFinder {
     PriorityQueue<Integer> max;
     PriorityQueue<Integer> min;
@@ -170,8 +172,7 @@ class MedianFinder {
 }
 
 // Top K Frequent Elements
-
-class Solution {
+class TopKFrequentElements {
     public int[] topKFrequent(int[] nums, int k) {
         Map<Integer,Integer> map = new HashMap<>();
         int[] res = new int[k];
