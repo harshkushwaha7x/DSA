@@ -26,3 +26,35 @@ class Solution {
         return maxNum;
     }
 }
+
+// Fractional Knapsack
+
+class Item{
+    int val,wt;
+    double ratio;
+    Item(int val,int wt){
+        this.val=val;
+        this.wt=wt;
+        ratio=(double)val/wt;
+    }
+}
+class Solution {
+    double fractionalKnapsack(List<Integer> val, List<Integer> wt, int capacity) {
+        Item[] arr=new Item[val.size()];
+        for(int i=0;i<val.size();i++)arr[i]=new Item(val.get(i),wt.get(i));
+        Arrays.sort(arr,(a,b)->Double.compare(b.ratio,a.ratio));
+        double res=0.0;
+        for(int i=0;i<val.size();i++){
+            if(arr[i].wt<=capacity){
+                res+=arr[i].val;
+                capacity-=arr[i].wt;
+            }
+            else{
+                res+=arr[i].ratio*capacity;
+                break;
+            }
+        }
+        return res;
+   }
+}
+
