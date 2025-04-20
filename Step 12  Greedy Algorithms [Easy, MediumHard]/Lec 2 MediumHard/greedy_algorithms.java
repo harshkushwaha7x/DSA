@@ -57,3 +57,37 @@ class Solution {
         return jumps;
     }
 }
+
+// Candy
+
+class Solution {
+    public int candy(int[] rating) {
+        int n = rating.length;
+        int candy = n;
+        int i = 1;
+        while(i<n){
+            if(rating[i] == rating[i-1]){
+                i++;
+                continue;
+            }
+
+            int peak = 0;
+            while(rating[i] > rating[i-1]){
+                peak++;
+                candy+= peak;
+                i++;
+                if(i==n) return candy;
+            }
+
+            int dip = 0;
+            while(i<n && rating[i] < rating[i-1]){
+                dip++;
+                candy += dip;
+                i++;
+            }
+            candy -= Math.min(peak,dip);
+        }
+
+        return candy;
+    }
+}
