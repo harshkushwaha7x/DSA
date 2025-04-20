@@ -1,8 +1,8 @@
 import java.util.Arrays;
+import java.util.List;
 
 // Assign Cookies
-
-class Solution {
+class AssignCookies {
     public int findContentChildren(int[] g, int[] s) {
         int cookiesNums = s.length;
         if(cookiesNums == 0)  return 0;
@@ -28,39 +28,38 @@ class Solution {
 }
 
 // Fractional Knapsack
-
-class Item{
-    int val,wt;
+class Item {
+    int val, wt;
     double ratio;
-    Item(int val,int wt){
-        this.val=val;
-        this.wt=wt;
-        ratio=(double)val/wt;
+    Item(int val, int wt) {
+        this.val = val;
+        this.wt = wt;
+        ratio = (double)val / wt;
     }
 }
-class Solution {
+
+class FractionalKnapsack {
     double fractionalKnapsack(List<Integer> val, List<Integer> wt, int capacity) {
-        Item[] arr=new Item[val.size()];
-        for(int i=0;i<val.size();i++)arr[i]=new Item(val.get(i),wt.get(i));
-        Arrays.sort(arr,(a,b)->Double.compare(b.ratio,a.ratio));
-        double res=0.0;
-        for(int i=0;i<val.size();i++){
-            if(arr[i].wt<=capacity){
-                res+=arr[i].val;
-                capacity-=arr[i].wt;
+        Item[] arr = new Item[val.size()];
+        for(int i = 0; i < val.size(); i++) arr[i] = new Item(val.get(i), wt.get(i));
+        Arrays.sort(arr, (a, b) -> Double.compare(b.ratio, a.ratio));
+        double res = 0.0;
+        for(int i = 0; i < val.size(); i++) {
+            if(arr[i].wt <= capacity) {
+                res += arr[i].val;
+                capacity -= arr[i].wt;
             }
-            else{
-                res+=arr[i].ratio*capacity;
+            else {
+                res += arr[i].ratio * capacity;
                 break;
             }
         }
         return res;
-   }
+    }
 }
 
 // Lemonade Change
-
-class Solution {
+class LemonadeChange {
     public boolean lemonadeChange(int[] bills) {
         int five = 0, ten = 0;
         
@@ -90,8 +89,7 @@ class Solution {
 }
 
 // Valid Parenthesis String
-
-public class Solution {
+class ValidParenthesisString {
     public boolean checkValidString(String s) {
         int leftMin = 0, leftMax = 0;
 
