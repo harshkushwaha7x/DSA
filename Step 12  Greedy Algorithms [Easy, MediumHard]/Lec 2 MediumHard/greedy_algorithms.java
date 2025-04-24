@@ -1,26 +1,30 @@
 import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 // N meetings in one room
 
-class Solution {
-    static class Meetings{
-        int start,end;
-        Meetings(int start,int end){
-            this.start=start;
-            this.end=end;
+class NMeetingsInOneRoom {
+    static class Meeting {
+        int start, end;
+        Meeting(int start, int end) {
+            this.start = start;
+            this.end = end;
         }
     }
-    public int maxMeetings(int start[], int end[]) {
-        int n=end.length;
-        Meetings[] arr=new Meetings[n];
-        for(int i=0;i<n;i++)arr[i]=new Meetings(start[i],end[i]);
-        Arrays.sort(arr,(a,b)->a.end-b.end);
-        int cnt=1;
-        int prevEnd=arr[0].end;
-        for(int i=1;i<n;i++){
-            if(arr[i].start>prevEnd){
+    
+    public int maxMeetings(int[] start, int[] end) {
+        int n = end.length;
+        Meeting[] arr = new Meeting[n];
+        for (int i = 0; i < n; i++) arr[i] = new Meeting(start[i], end[i]);
+        Arrays.sort(arr, (a, b) -> a.end - b.end);
+        int cnt = 1;
+        int prevEnd = arr[0].end;
+        for (int i = 1; i < n; i++) {
+            if (arr[i].start > prevEnd) {
                 cnt++;
-                prevEnd=arr[i].end;
+                prevEnd = arr[i].end;
             }
         }
         return cnt;
@@ -29,20 +33,20 @@ class Solution {
 
 // Jump Game
 
-class Solution {
+class JumpGame {
     public boolean canJump(int[] nums) {
-       int reachable = 0;
-       for(int i = 0; i < nums.length; i ++) {
-           if(i > reachable) return false;
-           reachable = Math.max(reachable, i + nums[i]);
-       } 
-       return true;
+        int reachable = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (i > reachable) return false;
+            reachable = Math.max(reachable, i + nums[i]);
+        }
+        return true;
     }
 }
 
 // Jump Game II
 
-class Solution {
+class JumpGameII {
     public int jump(int[] nums) {
         int n = nums.length;
         int jumps = 0, currentEnd = 0, farthest = 0;
@@ -60,32 +64,32 @@ class Solution {
 
 // Candy
 
-class Solution {
+class CandyDistribution {
     public int candy(int[] rating) {
         int n = rating.length;
         int candy = n;
         int i = 1;
-        while(i<n){
-            if(rating[i] == rating[i-1]){
+        while (i < n) {
+            if (rating[i] == rating[i - 1]) {
                 i++;
                 continue;
             }
 
             int peak = 0;
-            while(rating[i] > rating[i-1]){
+            while (rating[i] > rating[i - 1]) {
                 peak++;
-                candy+= peak;
+                candy += peak;
                 i++;
-                if(i==n) return candy;
+                if (i == n) return candy;
             }
 
             int dip = 0;
-            while(i<n && rating[i] < rating[i-1]){
+            while (i < n && rating[i] < rating[i - 1]) {
                 dip++;
                 candy += dip;
                 i++;
             }
-            candy -= Math.min(peak,dip);
+            candy -= Math.min(peak, dip);
         }
 
         return candy;
@@ -94,7 +98,7 @@ class Solution {
 
 // Insert Interval
 
-class Solution {
+class IntervalInserter {
     public int[][] insert(int[][] intervals, int[] newInterval) {
         List<int[]> ans = new ArrayList<>();
         int start = newInterval[0], end = newInterval[1];
@@ -132,43 +136,43 @@ class Solution {
 
 // Merge Intervals
 
-class Solution {
+class IntervalMerger {
     public int[][] merge(int[][] intervals) {
-		int min = Integer.MAX_VALUE;
-		int max = Integer.MIN_VALUE;
-		
-		for (int i = 0; i < intervals.length; i++) {
-			min = Math.min(min, intervals[i][0]);
-			max = Math.max(max, intervals[i][0]);
-		}
-		
-		int[] range = new int[max - min + 1];
-		for (int i = 0; i < intervals.length; i++) {
-			range[intervals[i][0] - min] = Math.max(intervals[i][1] - min, range[intervals[i][0] - min]); 
-		}
-		
-		int start = 0, end = 0;
-		LinkedList<int[]> result = new LinkedList<>();
-		for (int i = 0; i < range.length; i++) {
-			if (range[i] == 0) {
-				continue;
-			}
-			if (i <= end) {
-				end = Math.max(range[i], end);
-			} else {
-				result.add(new int[] {start + min, end + min});
-				start = i;
-				end = range[i];
-			}
-		}
-		result.add(new int[] {start + min, end + min});
-		return result.toArray(new int[result.size()][]);
-	}
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+        
+        for (int i = 0; i < intervals.length; i++) {
+            min = Math.min(min, intervals[i][0]);
+            max = Math.max(max, intervals[i][0]);
+        }
+        
+        int[] range = new int[max - min + 1];
+        for (int i = 0; i < intervals.length; i++) {
+            range[intervals[i][0] - min] = Math.max(intervals[i][1] - min, range[intervals[i][0] - min]); 
+        }
+        
+        int start = 0, end = 0;
+        LinkedList<int[]> result = new LinkedList<>();
+        for (int i = 0; i < range.length; i++) {
+            if (range[i] == 0) {
+                continue;
+            }
+            if (i <= end) {
+                end = Math.max(range[i], end);
+            } else {
+                result.add(new int[] {start + min, end + min});
+                start = i;
+                end = range[i];
+            }
+        }
+        result.add(new int[] {start + min, end + min});
+        return result.toArray(new int[result.size()][]);
+    }
 }
 
 // Non-overlapping Intervals
 
-class Solution {
+class NonOverlappingIntervals {
     public int eraseOverlapIntervals(int[][] intervals) {
         int max = intervals[0][1];
         int min = max;
