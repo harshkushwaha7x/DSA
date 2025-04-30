@@ -109,3 +109,19 @@ class Solution {
     }
 }
 
+// Binary Tree Inorder Traversal
+
+class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+    List<Integer> res=new ArrayList<>();
+    help_panunga(root,res);
+    return res;
+    }
+    private static void help_panunga(TreeNode root,List<Integer> res){
+        if(root==null)return;
+        help_panunga(root.left,res);
+        res.add(root.val);
+        help_panunga(root.right,res);
+    }
+}
+
