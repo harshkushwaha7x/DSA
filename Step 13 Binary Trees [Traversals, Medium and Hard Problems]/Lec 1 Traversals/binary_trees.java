@@ -5,7 +5,7 @@ import java.util.Queue;
 
 // Binary Tree Preorder Traversal
 
-class Solution {
+class PreorderTraversal {
     public List<Integer> Traversal(TreeNode root,List<Integer> arr){
         if(root!=null){
             int data=root.val;
@@ -24,7 +24,7 @@ class Solution {
 
 // Binary Tree Inorder Traversal
 
-class Solution {
+class InorderTraversal {
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         if(root == null){
@@ -39,7 +39,7 @@ class Solution {
 
 // Binary Tree Postorder Traversal
 
-class Solution {
+class PostorderTraversal  {
     private void find(TreeNode root, List<Integer> ans) {
         if (root == null) return;
         find(root.left, ans);
@@ -56,7 +56,7 @@ class Solution {
 
 // Binary Tree Level Order Traversal
 
-class Solution {
+class LevelOrderTraversal  {
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>>a=new ArrayList<>();
         levelorder(root,a);
@@ -94,7 +94,7 @@ class Solution {
 
 // Binary Tree Preorder Traversal
 
-class Solution {
+class PreorderTraversalAlt {
     public List<Integer> Traversal(TreeNode root,List<Integer> arr){
         if(root!=null){
             int data=root.val;
@@ -113,7 +113,7 @@ class Solution {
 
 // Binary Tree Inorder Traversal
 
-class Solution {
+class InorderTraversalAlt  {
     public List<Integer> inorderTraversal(TreeNode root) {
     List<Integer> res=new ArrayList<>();
     help_panunga(root,res);
@@ -129,7 +129,7 @@ class Solution {
 
 // Binary Tree Postorder Traversal
 
-class Solution {
+class PostorderTraversalAlt{
     private void find(TreeNode root, List<Integer> ans) {
         if (root == null) return;
         find(root.left, ans);
