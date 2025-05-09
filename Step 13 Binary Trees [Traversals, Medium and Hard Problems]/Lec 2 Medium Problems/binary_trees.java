@@ -119,3 +119,27 @@ public class Solution {
     }
 }
 
+// Vertical Order Traversal of a Binary Tree
+
+class Solution {
+    public List<List<Integer>> verticalTraversal(TreeNode root) {
+        List<List<Integer>> res=new ArrayList<>();
+        TreeMap<Integer,List<int[]>> tm=new TreeMap<>();
+        dfs(root,0,0,tm);
+        for(Map.Entry<Integer,List<int[]>> e:tm.entrySet()){
+            List<int[]> nodes=e.getValue();
+            nodes.sort((a,b) -> a[0]==b[0] ? a[1]-b[1] : a[0]-b[0]);
+            List<Integer> temp=new ArrayList<>();
+            for(int[] p:nodes) temp.add(p[1]);
+            res.add(temp);
+        }
+        return res;
+    }
+    void dfs(TreeNode node,int r,int c, TreeMap<Integer,List<int[]>> tm){
+        if(node==null) return;
+        tm.putIfAbsent(c,new ArrayList<>());
+        tm.get(c).add(new int[]{r,node.val});
+        dfs(node.left,r+1,c-1,tm);
+        dfs(node.right,r+1,c+1,tm);
+    }
+}
