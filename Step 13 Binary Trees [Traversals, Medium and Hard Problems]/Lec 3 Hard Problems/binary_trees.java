@@ -225,3 +225,37 @@ class Solution {
         help_panunga(root.right,res);
     }
 }
+
+// Flatten Binary Tree to Linked List
+
+class Solution {
+    public static void travel(TreeNode root,ArrayList<TreeNode>l){
+        if(root==null){
+            return;
+        }
+        l.add(root);
+        travel(root.left,l);
+        travel(root.right,l);
+    }
+    public static void merge(TreeNode root,ArrayList<TreeNode>l){
+        if(l.size()==1){
+            return;
+        }
+        root.left=null;
+        TreeNode temp=root;
+        for(int i=1;i<l.size();i++){
+            temp.left=null;
+            temp.right=l.get(i);
+            temp=temp.right;
+        }
+
+    }
+    public void flatten(TreeNode root) {
+        if(root==null){
+            return;
+        }
+        ArrayList<TreeNode>l=new ArrayList<>();
+        travel(root,l);
+        merge(root,l);
+    }
+}
