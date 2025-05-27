@@ -43,3 +43,27 @@ class Solution{
         return root;
     }
 }
+
+// Kth Smallest Element in a BST
+
+class Solution {
+    int count;
+    int value;
+    public int kthSmallest(TreeNode root, int k) {
+        count = 0;
+        inorderTraversal(root, k);
+        return value;
+    }
+
+    private void inorderTraversal(TreeNode root, int k) {
+        if(root == null) {
+            return;
+        }
+        inorderTraversal(root.left, k);
+        count++;
+        if(count == k) {
+            value = root.val;
+        }
+        inorderTraversal(root.right, k);
+    }
+}
