@@ -1,17 +1,17 @@
 // Insert into a Binary Search Tree
 
-class Solution {
+class InsertIntoBST {
     public TreeNode insertIntoBST(TreeNode root, int val) {
-                if(root == null) return new TreeNode(val);
-               if(val > root.val) root.right = insertIntoBST(root.right, val);
-                if(val < root.val) root.left = insertIntoBST(root.left, val);
-              return root;
+        if(root == null) return new TreeNode(val);
+        if(val > root.val) root.right = insertIntoBST(root.right, val);
+        if(val < root.val) root.left = insertIntoBST(root.left, val);
+        return root;
     }
 }
 
 // Delete Node in a BST
 
-class Solution{
+class DeleteNodeInBST {
     public int mVa(TreeNode root){
         int mV=root.val;
         while(root.left!=null){
@@ -46,7 +46,7 @@ class Solution{
 
 // Kth Smallest Element in a BST
 
-class Solution {
+class KthSmallestElementInBST {
     int count;
     int value;
     public int kthSmallest(TreeNode root, int k) {
@@ -70,7 +70,7 @@ class Solution {
 
 // Validate Binary Search Tree
 
-class Solution {
+class ValidateBinarySearchTree {
     static boolean flag = true;
     static TreeNode prev = null;
     public void inorder(TreeNode root) {
@@ -94,7 +94,7 @@ class Solution {
 
 // Lowest Common Ancestor of a Binary Search Tree
 
-class Solution {
+class LowestCommonAncestorOfBST {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null) return null;
         int curr = root.val;
@@ -111,7 +111,7 @@ class Solution {
 
 // Construct Binary Search Tree from Preorder Traversal
 
-class Solution {
+class ConstructBSTFromPreorder {
     public TreeNode bstFromPreorder(int[] preorder) {
         if (preorder == null || preorder.length == 0) {
             return null;
@@ -165,7 +165,7 @@ class BSTIterator {
 
 // Two Sum IV - Input is a BST
 
-class Solution{
+class TwoSumIV {
     public boolean findTarget(TreeNode root, int k){
         HashSet<Integer> set=new HashSet<>();
         return dfs(root,set,k);
@@ -184,7 +184,7 @@ class Solution{
 
 // Recover Binary Search Tree
 
-class Solution {
+class RecoverBinarySearchTree {
     public void recoverTree(TreeNode root) {
         TreeNode first = null;
         TreeNode second = null;
