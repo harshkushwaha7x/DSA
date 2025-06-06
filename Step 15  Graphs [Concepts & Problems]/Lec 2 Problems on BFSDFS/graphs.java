@@ -209,3 +209,54 @@ class Solution {
         cross_connection(board, i, j+1, n , m);
     }
 }
+
+// Number of Enclaves
+
+class Solution {
+    public int numEnclaves(int[][] grid) {
+        int n = grid.length;
+        int m = grid[0].length;
+
+        boolean[][] visited = new boolean[n][m];
+        for(int i = 0;i<n;i++){
+            if(grid[i][0]==1){
+                dfs(grid,visited,i,0,n,m);
+            }
+            if(grid[i][m-1] == 1){
+                dfs(grid,visited,i,m-1,n,m);
+            }
+        }
+        for(int i = 0;i<m;i++){
+            if(grid[0][i] == 1){
+                dfs(grid,visited,0,i,n,m);
+            }
+            if(grid[n-1][i] ==1){
+                dfs(grid,visited,n-1,i,n,m);
+            }
+        }
+        int ans = 0;
+        for(int i = 1;i<n-1;i++){
+            for(int j = 1;j<m-1;j++){
+                if(!visited[i][j] && grid[i][j] == 1){
+                    ans++;
+                }
+            }
+        }
+        return ans;
+    }
+    void dfs (int[][] grid,boolean[][] visited,int row,int col,int n ,int m){
+        int[] temprow = {1,-1,0,0};
+        int[] tempcol = {0,0,1,-1};
+
+        visited[row][col] = true;
+
+        for(int i = 0;i<4;i++){
+            int nrow = row+temprow[i];
+            int ncol = col+tempcol[i];
+
+            if(nrow>=0 && nrow<n && ncol>=0 && ncol<m && !visited[nrow][ncol] && grid[nrow][ncol]==1){
+                dfs(grid,visited,nrow,ncol,n,m);
+            }
+        }
+    }
+}
