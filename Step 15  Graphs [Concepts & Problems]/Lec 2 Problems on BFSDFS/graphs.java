@@ -1,6 +1,17 @@
+import java.util.*;
+import java.util.Queue;
+import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Arrays;
+
 // Number of Provinces
 
-class Solution {
+class NumberOfProvinces {
     public int findCircleNum(int[][] isConnected) {
         List<List<Integer>>adj = new ArrayList<>();
         int m = isConnected.length;
@@ -41,7 +52,7 @@ class Solution {
 
 // Rotting Oranges
 
-class Solution {
+class RottingOranges {
     int max = 0;
     int row;
     int col;
@@ -100,7 +111,7 @@ class Solution {
 
 // Flood Fill
 
-class Solution {
+class FloodFill {
     public int[][] floodFill(int[][] image, int sr, int sc, int color) {
         int img[][]=new int[image.length][image[0].length];
         for(int i=0;i<image.length;i++)
@@ -130,9 +141,9 @@ class Solution {
     }
 }
 
-// 01 Matrix
+// ZeroOneMatrix
 
-class Solution {
+class ZeroOneMatrix {
     int m, n;
     int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
     
@@ -176,9 +187,9 @@ class Solution {
     }
 }
 
-// Surrounded Regions
+// SurroundedRegions
 
-class Solution {
+class SurroundedRegions {
     public void solve(char[][] board) {
         int n = board.length;
         int m = board[0].length;
@@ -210,9 +221,9 @@ class Solution {
     }
 }
 
-// Number of Enclaves
+// NumberOfEnclaves
 
-class Solution {
+class NumberOfEnclaves {
     public int numEnclaves(int[][] grid) {
         int n = grid.length;
         int m = grid[0].length;
@@ -261,9 +272,9 @@ class Solution {
     }
 }
 
-// Word Ladder
+// WordLadder
 
-class Solution {
+class WordLadder {
     public List<String>getNeighbours(String word, HashSet<String>set){
         List <String>neighbours = new ArrayList<>();
         for(int i =0; i<word.length();i++){
@@ -311,9 +322,9 @@ class Solution {
     }
 }
 
-// Word Ladder II
+// WordLadderII
 
-class Solution {
+class WordLadderII {
     public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
         Set<String> wordSet = new HashSet<>(wordList);
         if (!wordSet.contains(endWord)) return new ArrayList<>();
@@ -379,9 +390,9 @@ class Solution {
     }
 }
 
-// Is Graph Bipartite?
+// IsGraphBipartite
 
-class Solution {
+class IsGraphBipartite {
     public boolean isBipartite(int[][] graph) {
         int col[]  = new int[graph.length];
         Arrays.fill(col,-1);
@@ -412,83 +423,83 @@ class Solution {
     }
 }
 
-// Course Schedule II
+// CourseScheduleII
 
-class Solution {
+class CourseScheduleII {
     static class DetectCycleGraph {
-		private int V;
-		private List<List<Integer>> edges;
+        private int V;
+        private List<List<Integer>> edges;
 
-		DetectCycleGraph(int n) {
-			this.V = n;
-			System.out.println(n);
-			edges = new ArrayList<>();
+        DetectCycleGraph(int n) {
+            this.V = n;
+            System.out.println(n);
+            edges = new ArrayList<>();
 
-			for (int i = 0; i < n; i++) {
-				edges.add(new ArrayList<>());
-			}
-		}
+            for (int i = 0; i < n; i++) {
+                edges.add(new ArrayList<>());
+            }
+        }
 
-		public DetectCycleGraph() {
-		}
+        public DetectCycleGraph() {
+        }
 
-		private void addEdge(int i, int j) {
-			edges.get(i).add(j);
-		}
+        private void addEdge(int i, int j) {
+            edges.get(i).add(j);
+        }
 
-		List<Integer> l = new ArrayList<>();
+        List<Integer> l = new ArrayList<>();
 
-		public int[] isCycle(DetectCycleGraph graph) {
+        public int[] isCycle(DetectCycleGraph graph) {
 
-			boolean[] visited = new boolean[this.V];
-			boolean[] curRec = new boolean[this.V];
-			for (int i = 0; i < this.V; i++) {
-				if (isCycleUtil(visited, curRec, i))
-					return new int[0];
-			}
+            boolean[] visited = new boolean[this.V];
+            boolean[] curRec = new boolean[this.V];
+            for (int i = 0; i < this.V; i++) {
+                if (isCycleUtil(visited, curRec, i))
+                    return new int[0];
+            }
 
-			int[] res = new int[V];
-			int index = 0;
-			for (Integer i : l) {
-				res[index] = i;
-				index++;
-			}
+            int[] res = new int[V];
+            int index = 0;
+            for (Integer i : l) {
+                res[index] = i;
+                index++;
+            }
 
-			return res;
-		}
+            return res;
+        }
 
-		public boolean isCycleUtil(boolean[] visited, boolean[] curRec, int i) {
+        public boolean isCycleUtil(boolean[] visited, boolean[] curRec, int i) {
 
-			if (visited[i] == false) {
+            if (visited[i] == false) {
 
-				visited[i] = true;
-				curRec[i] = true;
+                visited[i] = true;
+                curRec[i] = true;
 
-				List<Integer> neighbours = edges.get(i);
-				for (Integer v : neighbours) {
+                List<Integer> neighbours = edges.get(i);
+                for (Integer v : neighbours) {
 
-					if (!visited[v] && isCycleUtil(visited, curRec, v))
-						return true;
-					else if (curRec[v])
-						return true;
-				}
-				l.add(new Integer(i));
-			}
+                    if (!visited[v] && isCycleUtil(visited, curRec, v))
+                        return true;
+                    else if (curRec[v])
+                        return true;
+                }
+                l.add(new Integer(i));
+            }
 
-			curRec[i] = false;
+            curRec[i] = false;
 
-			return false;
-		}
-	}
+            return false;
+        }
+    }
 
-	public int[] findOrder(int numCourses, int[][] prerequisites) {
+    public int[] findOrder(int numCourses, int[][] prerequisites) {
 
-		DetectCycleGraph graph = new DetectCycleGraph(numCourses);
-		for (int i = 0; i < prerequisites.length; i++) {
-			int[] sub = prerequisites[i];
-			graph.addEdge(sub[0], sub[1]);
-		}
-		return graph.isCycle(graph);
+        DetectCycleGraph graph = new DetectCycleGraph(numCourses);
+        for (int i = 0; i < prerequisites.length; i++) {
+            int[] sub = prerequisites[i];
+            graph.addEdge(sub[0], sub[1]);
+        }
+        return graph.isCycle(graph);
 
-	}
+    }
 }
