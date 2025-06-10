@@ -1,6 +1,10 @@
-// Course Schedule
+import java.util.ArrayList;
+import java.util.Queue;
+import java.util.LinkedList;
+import java.util.List;
 
-public class Solution {
+// Course Schedule
+class CourseSchedule {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         ArrayList[] graph = new ArrayList[numCourses];
         int[] degree = new int[numCourses];
@@ -40,8 +44,7 @@ public class Solution {
 }
 
 // Course Schedule II
-
-class Solution {
+class CourseScheduleII {
     public int[] findOrder(int n, int[][] prerequisites) {
         ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
         for (int i = 0; i < n; i++) {
@@ -81,8 +84,7 @@ class Solution {
 }
 
 // Find Eventual Safe States
-
-class Solution {
+class FindEventualSafeStates {
     public List<Integer> eventualSafeNodes(int[][] graph) {
         List<Integer> l=new ArrayList<>();
         boolean[] safe=new boolean[graph.length];
