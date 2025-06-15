@@ -125,3 +125,103 @@ class Solution {
         return dist[dst] == Integer.MAX_VALUE ? -1 : dist[dst];
     }
 }
+
+// Network Delay Time
+
+class Solution {
+    public int networkDelayTime(int[][] times, int n, int K) {
+        int[][] graph = new int[n][n];
+        for(int i = 0; i < n ; i++) Arrays.fill(graph[i], Integer.MAX_VALUE);
+        for( int[] rows : times) graph[rows[0] - 1][rows[1] - 1] =  rows[2];        
+        
+        int[] distance = new int[n];
+        Arrays.fill(distance, Integer.MAX_VALUE);
+        distance[K - 1] = 0;
+        
+        boolean[] visited = new boolean[n];
+        for(int i = 0; i < n ; i++){
+            int v = minIndex(distance, visited);
+            if(v == -1)continue;
+            visited[v] = true;
+            for(int j = 0; j < n; j++){
+                if(graph[v][j] != Integer.MAX_VALUE){
+                    int newDist = graph[v][j] + distance[v];
+                    if(newDist < distance[j]) distance[j] = newDist;
+                }
+            }
+        }
+        int result = 0;
+        for(int dist : distance){
+            if(dist == Integer.MAX_VALUE) return -1;
+            result = Math.max(result, dist);
+        }
+        return result;
+    }
+	
+    private int minIndex(int[] distance, boolean[] visited){
+        int min = Integer.MAX_VALUE, minIndex = -1;
+        for(int i = 0; i < distance.length; i++){
+            if(!visited[i] && distance[i] < min){
+                min = distance[i];
+                minIndex = i;
+            }
+        }
+        return minIndex;
+    }
+}
+
+// Number of Ways to Arrive at Destination
+
+class Solution {
+  public int countPaths(int n, int[][] roads) {
+    List<Pair<Integer, Integer>>[] graph = new List[n];
+
+    for (int i = 0; i < n; i++)
+      graph[i] = new ArrayList<>();
+
+    for (int[] road : roads) {
+      final int u = road[0];
+      final int v = road[1];
+      final int w = road[2];
+      graph[u].add(new Pair<>(v, w));
+      graph[v].add(new Pair<>(u, w));
+    }
+
+    return dijkstra(graph, 0, n - 1);
+  }
+
+  private int dijkstra(List<Pair<Integer, Integer>>[] graph, int src, int dst) {
+    final int MOD = 1_000_000_007;
+    long[] ways = new long[graph.length];
+    Arrays.fill(ways, 0);
+    long[] dist = new long[graph.length];
+    Arrays.fill(dist, Long.MAX_VALUE);
+
+    ways[src] = 1;
+    dist[src] = 0;
+    Queue<Pair<Long, Integer>> minHeap = new PriorityQueue<>(Comparator.comparing(Pair::getKey)) {
+      { offer(new Pair<>(dist[src], src)); }
+    };
+
+    while (!minHeap.isEmpty()) {
+      final long d = minHeap.peek().getKey();
+      final int u = minHeap.poll().getValue();
+      if (d > dist[u])
+        continue;
+      for (Pair<Integer, Integer> pair : graph[u]) {
+        final int v = pair.getKey();
+        final int w = pair.getValue();
+        if (d + w < dist[v]) {
+          dist[v] = d + w;
+          ways[v] = ways[u];
+          minHeap.offer(new Pair<>(dist[v], v));
+        } else if (d + w == dist[v]) {
+          ways[v] += ways[u];
+          ways[v] %= MOD;
+        }
+      }
+    }
+
+    return (int) ways[dst];
+  }
+}
