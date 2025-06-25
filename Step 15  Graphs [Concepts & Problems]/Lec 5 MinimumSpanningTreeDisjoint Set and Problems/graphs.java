@@ -1,6 +1,15 @@
 // Number of Operations to Make Network Connected
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.PriorityQueue;
 
-class Solution {
+class MakeConnectedSolution {
     public int makeConnected(int n, int[][] connections) {
         int[] parent = new int[n];
         
@@ -40,8 +49,7 @@ class Solution {
 }
 
 // Most Stones Removed with Same Row or Column
-
-class Solution {
+class RemoveStonesSolution {
     
     public int removeStones(int[][] stones) {
         int parent[] = new int[20001];
@@ -51,7 +59,7 @@ class Solution {
             int y = stone[1];
             union(parent, x, y + 10001);
         }
-        Set<Integer>set = new HashSet<>();
+        Set<Integer> set = new HashSet<>();
         for(int[] stone : stones) {
             set.add(find_parent(parent, stone[0]));
         }
@@ -71,8 +79,7 @@ class Solution {
 }
 
 // Accounts Merge
-
-class Solution {
+class AccountsMergeSolution {
     static class DSU {
         int[] parent;
         int[] size;
@@ -152,40 +159,39 @@ class Solution {
 }
 
 // Making A Large Island
+class LargestIslandSolution {
+    static class DisjointSet {
+        int[] parent;
+        int[] size;
+        public DisjointSet(int n){
+            parent = new int[n];
+            size = new int[n];
+            for(int i=0;i<n;i++){
+                parent[i]=i;
+                size[i]=1;
+            }
+        }
+        public int findParent(int n){
+            if(parent[n]==n) return n;
+            int up = findParent(parent[n]);
+            parent[n] = up;
+            return parent[n];
+        }
+        public void unionBySize(int a, int b){
+            int upa = findParent(a);
+            int upb = findParent(b);
+            if(upa==upb) return;
+            if(size[upa]<size[upb]){
+                parent[upa] = upb;
+                size[upb] += size[upa];
+            }
+            else{
+                parent[upb] = upa;
+                size[upa] += size[upb];
+            }
+        }
+    }
 
-class DisjointSet{
-    int[] parent;
-    int[] size;
-    public DisjointSet(int n){
-        parent = new int[n];
-        size = new int[n];
-        for(int i=0;i<n;i++){
-            parent[i]=i;
-            size[i]=1;
-        }
-    }
-    public int findParent(int n){
-        if(parent[n]==n) return n;
-        int up = findParent(parent[n]);
-        parent[n] = up;
-    return parent[n];
-    }
-    public void unionBySize(int a, int b){
-        int upa = findParent(a);
-        int upb = findParent(b);
-        if(upa==upb) return;
-        if(size[upa]<size[upb]){
-            parent[upa] = upb;
-            size[upb] += size[upa];
-        }
-        else{
-            parent[upb] = upa;
-            size[upa] += size[upb];
-        }
-    }
-}
-
-class Solution {
     public int largestIsland(int[][] grid) {
         int c=0;
         int n = grid.length;
@@ -229,17 +235,15 @@ class Solution {
             for(int l : set){
                 curMax += ds.size[l];
             }
-        ans = Math.max(curMax, ans);
+            ans = Math.max(curMax, ans);
         }
-    return ans;
+        return ans;
     }
 }
 
 // Swim in Rising Water
-
-class Solution {
+class SwimInWaterSolution {
     public int swimInWater(int[][] grid) {
-
         int n = grid.length;
         int[] dx = {-1, 1, 0, 0};
         int[] dy = {0, 0, 1, -1};
