@@ -1,6 +1,9 @@
+import java.util.ArrayList;
+import java.util.List;
+
 // Critical Connections in a Network
 
-class Solution {
+class CriticalConnectionsInANetwork {
     private int time = 0;
     public List<List<Integer>> criticalConnections(int n, List<List<Integer>> connections) {
         List<Integer>[] adj = new List[n];
