@@ -1,7 +1,9 @@
-// Climbing Stairs
+import java.util.Arrays;
 
-class Solution {
+// Climbing Stairs
+class ClimbingStairs {
     public int climbStairs(int n) {
+        if (n <= 1) return 1;
         int[] dp = new int[n + 1];
         dp[0] = dp[1] = 1;
 
@@ -10,18 +12,16 @@ class Solution {
         }
 
         return dp[n];
-        
     }    
 }
 
 // House Robber
-
-class Solution {
+class HouseRobber {
     public int rob(int[] nums) {
         int rob = 0;
         int norob = 0;
-        for (int i = 0; i < nums.length; i ++) {
-            int newRob = norob + nums[i];
+        for (int num : nums) {
+            int newRob = norob + num;
             int newNoRob = Math.max(norob, rob);
             rob = newRob;
             norob = newNoRob;
@@ -31,9 +31,8 @@ class Solution {
 }
 
 // House Robber II
-
-class Solution {
-    int solve(int[] nums, int n, int[] dp) {
+class HouseRobberII {
+    private int solve(int[] nums, int n, int[] dp) {
         if (n >= nums.length)
             return 0;
         if (dp[n] != -1)
@@ -48,15 +47,14 @@ class Solution {
         if (nums.length == 1)
             return nums[0];
 
-        int arr[]= new int[nums.length-1];
-        for(int i=0;i<nums.length-1;i++)
-        arr[i] =nums[i];
+        int[] arr = new int[nums.length - 1];
+        System.arraycopy(nums, 0, arr, 0, nums.length - 1);
 
-        int dp[] = new int[nums.length];
+        int[] dp = new int[nums.length];
         Arrays.fill(dp, -1);
-        int dp2[] = new int[nums.length];
+        int[] dp2 = new int[nums.length];
         Arrays.fill(dp2, -1);
 
-        return Math.max(solve(nums, 1, dp), solve(arr,0, dp2));
+        return Math.max(solve(nums, 1, dp), solve(arr, 0, dp2));
     }
 }
