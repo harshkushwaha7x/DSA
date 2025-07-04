@@ -60,3 +60,35 @@ class Solution {
         return dp[m-1][n-1];
     }
 }
+
+// Minimum Path Sum
+
+class Solution {
+    public int minPathSum(int[][] grid) {
+        int rows = grid.length;
+        int cols = grid[0].length;
+        int[][] distances = new int[rows][cols];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                distances[i][j] = Integer.MAX_VALUE;
+            }
+        }
+
+        distances[0][0] = grid[0][0];
+
+        
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (j + 1 < cols) {
+                    distances[i][j + 1] = Math.min(distances[i][j + 1], distances[i][j] + grid[i][j + 1]);
+                }
+                if (i + 1 < rows) {
+                    distances[i + 1][j] = Math.min(distances[i + 1][j], distances[i][j] + grid[i + 1][j]);
+                }
+            }
+        }
+
+        return distances[rows - 1][cols - 1];
+    }
+}
