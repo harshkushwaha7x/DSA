@@ -1,6 +1,9 @@
-// Unique Paths
+import java.util.List;
+import java.util.Arrays;
+import java.util.ArrayList;
 
-class Solution {
+// Unique Paths
+class UniquePaths {
     public int uniquePaths(int m, int n) {
         int dp[][] = new int[m+1][n+1];
         dp[0][0] = 1;
@@ -20,8 +23,7 @@ class Solution {
 }
 
 // Unique Paths II
-
-class Solution {
+class UniquePathsWithObstacles {
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
         int m= obstacleGrid.length;
         int n= obstacleGrid[0].length;
@@ -62,8 +64,7 @@ class Solution {
 }
 
 // Minimum Path Sum
-
-class Solution {
+class MinimumPathSum {
     public int minPathSum(int[][] grid) {
         int rows = grid.length;
         int cols = grid[0].length;
@@ -94,8 +95,7 @@ class Solution {
 }
 
 // Triangle
-
-class Solution {
+class Triangle {
     public int minimumTotal(List<List<Integer>> triangle) {
         int n= triangle.size();
         int[][] dp = new int[n][n];
@@ -117,8 +117,7 @@ class Solution {
 }
 
 // Minimum Falling Path Sum
-
-class Solution {
+class MinimumFallingPathSum {
     public int minFallingPathSum(int[][] matrix) {
         int n = matrix.length;
         int[][] res = new int[n][n];
