@@ -1,7 +1,6 @@
 import java.util.Arrays;
 
 // Partition Equal Subset Sum
-
 class PartitionEqualSubsetSum {
     public boolean canPartition(int[] nums) {
         int sum = 0;
