@@ -1,15 +1,17 @@
+import java.util.Arrays;
+
 // Partition Equal Subset Sum
 
-class Solution {
+class PartitionEqualSubsetSum {
     public boolean canPartition(int[] nums) {
-        int sum=0;
-        for(int i=0;i<nums.length;i++){
-            sum+=nums[i];
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
         }
-        if(sum%2!=0) return false;
-        sum/=2;
-        boolean dp[]=new boolean[sum+1];
-        dp[0]=true;
+        if (sum % 2 != 0) return false;
+        sum /= 2;
+        boolean dp[] = new boolean[sum + 1];
+        dp[0] = true;
         for (int num : nums) {
             for (int currSum = sum; currSum >= num; currSum--) {
                 dp[currSum] = dp[currSum] || dp[currSum - num];
@@ -21,46 +23,44 @@ class Solution {
 }
 
 // Partition Array Into Two Arrays to Minimize Sum Difference
+class PartitionArrayMinimizeSumDifference {
+    int ans = Integer.MAX_VALUE;
 
-class Solution {
-
-    int ans=Integer.MAX_VALUE;
     public int minimumDifference(int[] nums) {
-        int sum=0;
-        for(int num:nums){
-            sum+=num;
+        int sum = 0;
+        for (int num : nums) {
+            sum += num;
         }
-        call(nums,0,0,sum,0);
-       return ans;
+        call(nums, 0, 0, sum, 0);
+        return ans;
     }
-public void call(int []nums,int sum,int i,int totalSum,int count){
-    int n=nums.length/2;
-    
-    if( count==n ){
-        int x=Math.abs(totalSum-(2*sum));
-        ans=Math.min(ans,x);
-         return;
+
+    public void call(int[] nums, int sum, int i, int totalSum, int count) {
+        int n = nums.length / 2;
+
+        if (count == n) {
+            int x = Math.abs(totalSum - (2 * sum));
+            ans = Math.min(ans, x);
+            return;
+        }
+        if (i >= nums.length) {
+            return;
+        }
+
+        call(nums, sum + nums[i], i + 1, totalSum, count + 1);
+        call(nums, sum, i + 1, totalSum, count);
     }
-     if(i>=nums.length ){
-        return;
-     }
-   
-   call(nums,sum+nums[i],i+1,totalSum,count+1);
-   call(nums,sum,i+1,totalSum,count);
-    
-}
 }
 
 // Assign Cookies
-
-class Solution {
+class AssignCookies {
     public int findContentChildren(int[] g, int[] s) {
         Arrays.sort(s);
         Arrays.sort(g);
         int child = 0;
-        int cookie =0;
-        while(child<g.length && cookie<s.length){
-            if(g[child]<=s[cookie]){
+        int cookie = 0;
+        while (child < g.length && cookie < s.length) {
+            if (g[child] <= s[cookie]) {
                 child++;
             }
             cookie++;
@@ -70,27 +70,25 @@ class Solution {
 }
 
 // Coin Change
-
-class Solution {
+class CoinChange {
     public int coinChange(int[] coins, int amount) {
-        int dp[] = new int[amount+1];
-        Arrays.fill(dp,amount+1);
+        int dp[] = new int[amount + 1];
+        Arrays.fill(dp, amount + 1);
         dp[0] = 0;
-        for(int i=1;i<=amount;i++){
-            for(int coin:coins){
-                if(coin<=i){
-                    dp[i] = Math.min(dp[i],dp[i-coin]+1);
+        for (int i = 1; i <= amount; i++) {
+            for (int coin : coins) {
+                if (coin <= i) {
+                    dp[i] = Math.min(dp[i], dp[i - coin] + 1);
                 }
             }
         }
-        return dp[amount]>amount?-1:dp[amount];
+        return dp[amount] > amount ? -1 : dp[amount];
     }
 }
 
 // Target Sum
-
-class Solution {
-    static int helper(int ind, int target, int[] nums, int[][] dp){
+class TargetSum {
+    static int helper(int ind, int target, int[] nums, int[][] dp) {
         if (ind == 0) {
             if (target == 0 && nums[0] == 0)
                 return 2;
@@ -106,6 +104,7 @@ class Solution {
             taken = helper(ind - 1, target - nums[ind], nums, dp);
         return dp[ind][target] = (notTaken + taken);
     }
+
     public int findTargetSumWays(int[] nums, int target) {
         int totSum = 0;
         for (int i = 0; i < nums.length; i++) {
@@ -125,18 +124,17 @@ class Solution {
 }
 
 // Coin Change II
-
-class Solution {
+class CoinChangeII {
     public int change(int amount, int[] coins) {
         int[] dp = new int[amount + 1];
         dp[0] = 1;
-        
+
         for (int c : coins) {
             for (int a = c; a <= amount; a++) {
                 dp[a] += dp[a - c];
             }
         }
-        
-        return dp[amount];        
+
+        return dp[amount];
     }
 }
