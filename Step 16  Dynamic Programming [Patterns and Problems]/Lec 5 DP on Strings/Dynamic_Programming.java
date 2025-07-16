@@ -57,3 +57,28 @@ class Solution {
         return dp[n][n];
     }
 }
+
+// Minimum Insertion Steps to Make a String Palindrome
+
+class Solution {
+    public int minInsertions(String s) {
+        int n=s.length();
+        StringBuilder sb=new StringBuilder(s).reverse();
+        int dp[][]=new int[n][n];
+        for(int i=0;i<n;i++){
+            Arrays.fill(dp[i],-1);
+        }
+        int pdlen=longestPallindrome(s,sb,n-1,n-1,dp);
+        return n-pdlen;
+
+    }
+    public static int longestPallindrome(String str,StringBuilder sb,int len1,int len2,int[][]dp){
+        if(len1<0||len2<0)
+            return 0;
+        if(dp[len1][len2]!=-1)
+            return dp[len1][len2];
+        if(str.charAt(len1)==sb.charAt(len2))
+            return 1+longestPallindrome(str,sb,len1-1,len2-1,dp);
+        return dp[len1][len2]= Math.max(longestPallindrome(str,sb,len1-1,len2,dp),longestPallindrome(str,sb,len1,len2-1,dp));
+    }
+}
