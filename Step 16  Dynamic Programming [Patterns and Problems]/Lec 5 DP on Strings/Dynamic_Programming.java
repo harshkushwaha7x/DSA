@@ -82,3 +82,30 @@ class Solution {
         return dp[len1][len2]= Math.max(longestPallindrome(str,sb,len1-1,len2,dp),longestPallindrome(str,sb,len1,len2-1,dp));
     }
 }
+
+// Delete Operation for Two Strings
+
+class Solution {
+    public int minDistance(String word1, String word2) {
+        int n = word1.length();
+        int m = word2.length();
+
+        int[][] dp = new int[n + 1][m + 1];
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=m;j++){
+                if(word1.charAt(i - 1) == word2.charAt(j - 1))
+                    dp[i][j] = 1 + dp[i - 1][j - 1];
+                else
+                    dp[i][j] = Math.max(dp[i][j - 1], dp[i - 1][j]);
+            }
+        }
+
+        int lcm = dp[n][m];
+        int ans = 0;
+        if(n > lcm)
+            ans += (n - lcm);
+        if(m > lcm)
+            ans += (m - lcm);
+        return ans;
+    }
+}
