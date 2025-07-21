@@ -1,6 +1,7 @@
-// Longest Common Subsequence
+import java.util.Arrays;
 
-class Solution {
+// Longest Common Subsequence
+class LongestCommonSubsequence {
     public int longestCommonSubsequence(String text1, String text2) {
         int dp[][] = new int[text1.length()+1][text2.length()+1];
         for(int[] row : dp){
@@ -9,7 +10,7 @@ class Solution {
         return lcs(text1, text2, 0, 0, dp);
     }
 
-    int lcs(String s1, String s2 ,int i, int j, int[][] dp){
+    int lcs(String s1, String s2, int i, int j, int[][] dp){
         if(i == s1.length() || j == s2.length()){
             return 0;
         }
@@ -27,11 +28,9 @@ class Solution {
 }
 
 // Longest Palindromic Subsequence
-
-class Solution {
+class LongestPalindromicSubsequence {
     public int longestPalindromeSubseq(String s) {
         int n=s.length();
-        int count=0;
         String rev="";
         for(int i=n-1;i>=0;i--)
         {
@@ -59,8 +58,7 @@ class Solution {
 }
 
 // Minimum Insertion Steps to Make a String Palindrome
-
-class Solution {
+class MinimumInsertionsForPalindrome {
     public int minInsertions(String s) {
         int n=s.length();
         StringBuilder sb=new StringBuilder(s).reverse();
@@ -84,8 +82,7 @@ class Solution {
 }
 
 // Delete Operation for Two Strings
-
-class Solution {
+class DeleteOperationForTwoStrings {
     public int minDistance(String word1, String word2) {
         int n = word1.length();
         int m = word2.length();
@@ -111,14 +108,11 @@ class Solution {
 }
 
 // Shortest Common Supersequence 
-
-class Solution {
+class ShortestCommonSupersequence {
     public String shortestCommonSupersequence(String str1, String str2) {
-      
         int m = str1.length();
         int n = str2.length();
         int[][] dp = new int[m + 1][n + 1];
-        
         
         for (int i = 1; i <= m; i++) {
             for (int j = 1; j <= n; j++) {
@@ -135,7 +129,6 @@ class Solution {
         
         while (i > 0 && j > 0) {
             if (str1.charAt(i - 1) == str2.charAt(j - 1)) {
-               
                 result.append(str1.charAt(i - 1));
                 i--;
                 j--;
@@ -158,14 +151,12 @@ class Solution {
             j--;
         }
         
-       
         return result.reverse().toString();
     }
 }
 
 // Distinct Subsequences
-
-class Solution {
+class DistinctSubsequences {
     public int numDistinct(String s, String t) {
         if(t.length() > s.length() ) return 0;
 
@@ -186,8 +177,7 @@ class Solution {
 }
 
 // Edit Distance
-
-class Solution {
+class EditDistance {
     private int solve(int i, int j, String s1, String s2, int dp[][]) {
         if (i == 0 && j == 0) {
             if (s1.charAt(i) == s2.charAt(j))
@@ -229,24 +219,24 @@ class Solution {
 }
 
 // Wildcard Matching
-
-class Solution {
-    public boolean match(int i, int j, String s, String p,Boolean[][] dp) {
+class WildcardMatching {
+    public boolean match(int i, int j, String s, String p, Boolean[][] dp) {
         if (i < 0 && j < 0) return true;
         if (j < 0) return false;
       
-        if (i < 0) return p.charAt(j) == '*' && match(i, j - 1, s, p,dp);
-        if(dp[i][j]!=null)return dp[i][j];
+        if (i < 0) return p.charAt(j) == '*' && match(i, j - 1, s, p, dp);
+        if(dp[i][j]!=null) return dp[i][j];
         if (s.charAt(i) == p.charAt(j) || p.charAt(j) == '?') {
-            return dp[i][j]= match(i - 1, j - 1, s, p,dp);
+            return dp[i][j]= match(i - 1, j - 1, s, p, dp);
         }
         if (p.charAt(j) == '*') {
-            return dp[i][j]=match(i, j - 1, s, p,dp) || match(i - 1, j, s, p,dp);
+            return dp[i][j]=match(i, j - 1, s, p, dp) || match(i - 1, j, s, p, dp);
         }
         return dp[i][j]=false;
     }
+    
     public boolean isMatch(String s, String p) {
         Boolean[][] dp=new Boolean[s.length()][p.length()];
-        return match(s.length() - 1, p.length() - 1, s, p,dp);
+        return match(s.length() - 1, p.length() - 1, s, p, dp);
     }
 }
