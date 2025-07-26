@@ -1,6 +1,5 @@
 // Best Time to Buy and Sell Stock
-
-class Solution {
+class BuySellStock {
     public int maxProfit(int[] prices) {
         int buy_price = Integer.MAX_VALUE;
         int maxProfit = 0;
@@ -18,8 +17,7 @@ class Solution {
 }
 
 // Best Time to Buy and Sell Stock II
-
-class Solution {
+class BuySellStockII {
     public int maxProfit(int[] prices) {
         int profit = 0;
         for(int i=1;i<prices.length;i++) {
@@ -32,8 +30,7 @@ class Solution {
 }
 
 // Best Time to Buy and Sell Stock III
-
-class Solution {
+class BuySellStockIII {
     public int maxProfit(int[] prices) {
         int buy1 = Integer.MIN_VALUE; int buy2 = Integer.MIN_VALUE;
         int sell1 = 0; int sell2 = 0;
@@ -50,8 +47,7 @@ class Solution {
 }
 
 // Best Time to Buy and Sell Stock IV
-
-class Solution {
+class BuySellStockIV {
     public int maxProfit(int k, int[] prices) {
         int n = prices.length;
         int[][][] dp = new int[n][k+1][2];
@@ -73,8 +69,7 @@ class Solution {
 }
 
 // Best Time to Buy and Sell Stock with Cooldown
-
-class Solution {
+class BuySellStockCooldown {
     public int maxProfit(int[] prices) {
         if (prices == null || prices.length < 1) {
             return 0;
@@ -93,8 +88,7 @@ class Solution {
 }
 
 // Best Time to Buy and Sell Stock with Transaction Fee
-
-class Solution {
+class BuySellStockTransactionFee {
     public int maxProfit(int[] prices, int fee) {
         int n = prices.length;
         if (n == 0) return 0;
