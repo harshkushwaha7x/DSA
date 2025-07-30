@@ -1,25 +1,29 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 // Longest Increasing Subsequence
-class Solution {
+class LongestIncreasingSubsequence {
     public int lengthOfLIS(int[] nums) {
-        int res=1;
-        int[] arr =new int[nums.length];
-        for(int k=0;k<arr.length;k++){
-            arr[k]=1;
+        int res = 1;
+        int[] arr = new int[nums.length];
+        for (int k = 0; k < arr.length; k++) {
+            arr[k] = 1;
         }
-        for(int i=1;i<nums.length;i++){
-            for(int j=0;j<i;j++){
-                if(nums[i]>nums[j]&&arr[j]+1>arr[i]){
-                    arr[i]=arr[j]+1;
+        for (int i = 1; i < nums.length; i++) {
+            for (int j = 0; j < i; j++) {
+                if (nums[i] > nums[j] && arr[j] + 1 > arr[i]) {
+                    arr[i] = arr[j] + 1;
                 }
             }
-            res=Math.max(res,arr[i]);
+            res = Math.max(res, arr[i]);
         }
         return res;
     }
 }
 
 // Largest Divisible Subset
-class Solution {
+class LargestDivisibleSubset {
     public List<Integer> largestDivisibleSubset(int[] nums) {
         int n = nums.length;
         int[] dp = new int[n];
@@ -54,44 +58,44 @@ class Solution {
 }
 
 // Longest String Chain
-class Solution {
+class LongestStringChain {
     public int longestStrChain(String[] words) {
-        Arrays.sort(words, (a,b)->a.length()-b.length());
+        Arrays.sort(words, (a, b) -> a.length() - b.length());
         int n = words.length;
-        int []len = new int[n];
-        Arrays.fill(len,1);
+        int[] len = new int[n];
+        Arrays.fill(len, 1);
          
         int maxLen = 1;
 
-        for(int i = 0; i<n; i++){
-            for(int j=i-1; j>=0; j--){
+        for (int i = 0; i < n; i++) {
+            for (int j = i - 1; j >= 0; j--) {
                 int lenDiff = words[i].length() - words[j].length();
-                if(lenDiff > 1) break;
-                if(lenDiff==0) continue;
-                if(len[i] < len[j] + 1  && formChain(words[i], words[j])){
+                if (lenDiff > 1) break;
+                if (lenDiff == 0) continue;
+                if (len[i] < len[j] + 1 && formChain(words[i], words[j])) {
                     len[i] = len[j] + 1;
                 }
             }
-           maxLen = Math.max(maxLen, len[i]);
+            maxLen = Math.max(maxLen, len[i]);
         }
 
         return maxLen;
     }
 
-    private boolean formChain(String a, String b){
+    private boolean formChain(String a, String b) {
         int ai = 0;
         int bi = 0;
-        while(ai < a.length() && bi < b.length()){
-            if(a.charAt(ai) == b.charAt(bi)) bi++;
+        while (ai < a.length() && bi < b.length()) {
+            if (a.charAt(ai) == b.charAt(bi)) bi++;
             ai++;
-            if(ai-bi > 1) return false;
+            if (ai - bi > 1) return false;
         }
         return true;
     }
 }
 
 // Number of Longest Increasing Subsequence
-class Solution {
+class NumberOfLongestIncreasingSubsequence {
     public int findNumberOfLIS(int[] nums) {
         int n = nums.length;
         int[] dpLen = new int[n];
@@ -103,15 +107,14 @@ class Solution {
         int overallLen = 1;
         int res = 1;
 
-
-        for(int i = 1; i < n; i++){
+        for (int i = 1; i < n; i++) {
             currLen = 1;
             currCount = 1;
-            for(int j = i - 1; j >= 0; j--){
-                if(nums[i] > nums[j]){
-                    if(dpLen[j] + 1 == currLen){
+            for (int j = i - 1; j >= 0; j--) {
+                if (nums[i] > nums[j]) {
+                    if (dpLen[j] + 1 == currLen) {
                         currCount += dpCount[j];
-                    }else if(dpLen[j] + 1 > currLen){
+                    } else if (dpLen[j] + 1 > currLen) {
                         currLen = dpLen[j] + 1;
                         currCount = dpCount[j];
                     }
@@ -121,9 +124,9 @@ class Solution {
             dpLen[i] = currLen;
             dpCount[i] = currCount;
 
-            if(currLen == overallLen){
+            if (currLen == overallLen) {
                 res += currCount;
-            }else if(currLen > overallLen){
+            } else if (currLen > overallLen) {
                 res = currCount;
                 overallLen = currLen;
             }
