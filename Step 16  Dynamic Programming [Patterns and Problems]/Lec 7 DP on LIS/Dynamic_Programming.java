@@ -19,7 +19,6 @@ class Solution {
 }
 
 // Largest Divisible Subset
-
 class Solution {
     public List<Integer> largestDivisibleSubset(int[] nums) {
         int n = nums.length;
@@ -51,5 +50,42 @@ class Solution {
         }
         
         return result;
+    }
+}
+
+// Longest String Chain
+class Solution {
+    public int longestStrChain(String[] words) {
+        Arrays.sort(words, (a,b)->a.length()-b.length());
+        int n = words.length;
+        int []len = new int[n];
+        Arrays.fill(len,1);
+         
+        int maxLen = 1;
+
+        for(int i = 0; i<n; i++){
+            for(int j=i-1; j>=0; j--){
+                int lenDiff = words[i].length() - words[j].length();
+                if(lenDiff > 1) break;
+                if(lenDiff==0) continue;
+                if(len[i] < len[j] + 1  && formChain(words[i], words[j])){
+                    len[i] = len[j] + 1;
+                }
+            }
+           maxLen = Math.max(maxLen, len[i]);
+        }
+
+        return maxLen;
+    }
+
+    private boolean formChain(String a, String b){
+        int ai = 0;
+        int bi = 0;
+        while(ai < a.length() && bi < b.length()){
+            if(a.charAt(ai) == b.charAt(bi)) bi++;
+            ai++;
+            if(ai-bi > 1) return false;
+        }
+        return true;
     }
 }
