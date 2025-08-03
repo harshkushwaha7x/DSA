@@ -1,6 +1,7 @@
-// Minimum Cost to Cut a Stick
-class Solution {
+import java.util.Arrays;
 
+// Minimum Cost to Cut a Stick
+class MinimumCostToCutAStick {
     int dfs(int[] newArr, int i, int j, Integer[][] memo) {
         if (i + 1 >= j) {
             return 0;
@@ -14,7 +15,6 @@ class Solution {
         }
         memo[i][j] = min;
         return min;
-
     }
 
     public int minCost(int n, int[] cuts) {
@@ -35,7 +35,7 @@ class Solution {
 }
 
 // Burst Balloons
-class Solution {
+class BurstBalloons {
     int [][] dp ;
     public int maxCoins(int[] nums) {
         dp = new int[nums.length][nums.length];
@@ -59,7 +59,7 @@ class Solution {
 }
 
 // Parsing A Boolean Expression
-class Solution {
+class ParsingABooleanExpression {
     int idx = 0;
 
     private boolean solveHelper(String expression) {
@@ -117,7 +117,7 @@ class Solution {
 }
 
 // Palindrome Partitioning II
-class Solution {
+class PalindromePartitioningII {
     public int minCut(String s) {
         
         int length = s.length ();
@@ -159,7 +159,7 @@ class Solution {
 }
 
 // Partition Array for Maximum Sum
-class Solution {
+class PartitionArrayForMaximumSum {
     public int maxSumAfterPartitioning(int[] arr, int k) {
         int[] dp = new int[arr.length + 1];
 
