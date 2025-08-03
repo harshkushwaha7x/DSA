@@ -115,3 +115,45 @@ class Solution {
         return solveHelper(expression);
     }
 }
+
+// Palindrome Partitioning II
+class Solution {
+    public int minCut(String s) {
+        
+        int length = s.length ();
+        char[] c = s.toCharArray ();
+        boolean[][] dp = new boolean[length][length];
+        
+        for (int end = 0; end < length; end++) {
+            for (int start = 0; start <= end; start++) {
+                if (c[start] == c[end]) {
+                    if (start == end) {
+                        dp[start][end] = true;
+                    }
+                    else if (end - start == 1) {
+                        dp[start][end] = true;
+                    }
+                    else if (dp[start + 1][end - 1]) {
+                        dp[start][end] = true;
+                    }
+                }
+            }
+        }
+        
+        
+        int[] minimumCuts = new int[length + 1];
+        minimumCuts[0] = -1;
+        
+        for (int i = 0; i < length; i++) {
+            minimumCuts[i + 1] = minimumCuts[i] + 1;
+            
+            for (int j = i - 1; j >= 0; j--) {
+                if (dp[j][i]) {
+                    minimumCuts[i + 1] = Math.min (minimumCuts[i + 1], minimumCuts[j] + 1);
+                }
+            }
+        }
+        
+        return minimumCuts[length];
+    }
+}
