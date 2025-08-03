@@ -157,3 +157,25 @@ class Solution {
         return minimumCuts[length];
     }
 }
+
+// Partition Array for Maximum Sum
+class Solution {
+    public int maxSumAfterPartitioning(int[] arr, int k) {
+        int[] dp = new int[arr.length + 1];
+
+        for(int i = arr.length - 1; i >= 0; i--) {
+
+            int max = Integer.MIN_VALUE, sum = 0, count = 0;
+
+            for(int j = i; j < i + k && j < arr.length; j++) {
+                count++;
+                max = Math.max(arr[j], max);
+
+                sum = Math.max(sum, max * count + dp[j + 1]);
+            }
+            dp[i] = sum;
+        }
+
+        return dp[0];
+    }
+}
