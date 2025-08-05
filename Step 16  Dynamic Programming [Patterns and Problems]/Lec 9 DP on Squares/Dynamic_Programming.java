@@ -1,5 +1,7 @@
+import java.util.Arrays;
+
 // Maximal Rectangle
-class Solution {
+class MaximalRectangle {
     public int maximalRectangle(char[][] matrix) {
         if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
             return 0;
@@ -64,7 +66,7 @@ class Solution {
 }
 
 // Count Square Submatrices with All Ones
-class Solution {
+class CountSquareSubmatrices {
     public int countSquares(int[][] matrix) {
         int m = matrix.length, n = matrix[0].length;
         int[][] dp = new int[m + 1][n + 1];
