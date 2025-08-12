@@ -45,3 +45,75 @@ class Solution {
         return count(n, "1");
     }
 }
+
+// Repeated String Match
+class Solution {
+    public int repeatedStringMatch(String a, String b) {
+        StringBuilder sb = new StringBuilder();
+        int count = 0;
+
+       
+        while (sb.length() < b.length()) {
+            sb.append(a);
+            count++;
+        }
+
+        
+        if (kmpsearch(sb.toString().toCharArray(), b.toCharArray())) {
+            return count;
+        }
+
+        
+        sb.append(a);
+        count++;
+        if (kmpsearch(sb.toString().toCharArray(), b.toCharArray())) {
+            return count;
+        }
+
+        return -1;
+    }
+
+    public boolean kmpsearch(char[] str, char[] pattern) {
+        int[] helper = prepare(pattern);
+        int i = 0;
+        int j = 0;
+
+        while (i < str.length) {
+            if (str[i] == pattern[j]) {
+                i++;
+                j++;
+                if (j == pattern.length) return true; 
+            } else {
+                if (j != 0) {
+                    j = helper[j - 1];
+                } else {
+                    i++;
+                }
+            }
+        }
+        return false;
+    }
+
+    
+    public int[] prepare(char[] pattern) {
+        int[] helper = new int[pattern.length];
+        int index = 0;
+
+        for (int i = 1; i < pattern.length; ) {
+            if (pattern[i] == pattern[index]) {
+                helper[i] = index + 1;
+                index++;
+                i++;
+            } else {
+                if (index != 0) {
+                    index = helper[index - 1];
+                } else {
+                    helper[i] = 0;
+                    i++;
+                }
+            }
+        }
+
+        return helper;
+    }
+}
