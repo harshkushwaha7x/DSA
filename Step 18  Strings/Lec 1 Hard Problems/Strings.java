@@ -1,5 +1,9 @@
+import java.util.Stack;
+import java.util.HashMap;
+import java.util.Map;
+
 // Minimum Add to Make Parentheses Valid
-class Solution {
+class MinimumAddToMakeParenthesesValid {
     public int minAddToMakeValid(String s) {
         int n = s.length();
         Stack<Character> stack = new Stack<>();
@@ -21,7 +25,7 @@ class Solution {
 }
 
 // Count and Say
-class Solution {
+class CountAndSay {
     public String count(int n, String a) {
         if(n == 1) return a;
         Map<Character, Integer> map = new HashMap<>();
@@ -47,23 +51,20 @@ class Solution {
 }
 
 // Repeated String Match
-class Solution {
+class RepeatedStringMatch {
     public int repeatedStringMatch(String a, String b) {
         StringBuilder sb = new StringBuilder();
         int count = 0;
 
-       
         while (sb.length() < b.length()) {
             sb.append(a);
             count++;
         }
 
-        
         if (kmpsearch(sb.toString().toCharArray(), b.toCharArray())) {
             return count;
         }
 
-        
         sb.append(a);
         count++;
         if (kmpsearch(sb.toString().toCharArray(), b.toCharArray())) {
@@ -94,7 +95,6 @@ class Solution {
         return false;
     }
 
-    
     public int[] prepare(char[] pattern) {
         int[] helper = new int[pattern.length];
         int index = 0;
@@ -119,23 +119,14 @@ class Solution {
 }
 
 // Find the Index of the First Occurrence in a String
-class Solution {
-    public int strStr(String haystack, String needle) 
-    {
-        return haystack.indexOf(needle);
-        
-    }
-}
-
-//  Find the Index of the First Occurrence in a String
-class Solution {
+class StrStr {
     public int strStr(String haystack, String needle) {
         return haystack.indexOf(needle);
     }
 }
 
 // Shortest Palindrome
-class Solution {
+class ShortestPalindrome {
     long base = 29;
     long mod = (long)1e9 + 7;
     public String shortestPalindrome(String s) {
@@ -143,8 +134,7 @@ class Solution {
       long rh = 0; 
       long power = 1; 
       int index = -1; 
-      for(int i =0; i<s.length(); i++)
-      {
+      for(int i =0; i<s.length(); i++) {
         char ch = s.charAt(i);
         fh = (fh*base + (ch-'a' + 1))%mod;
         rh = (rh + (ch-'a'+1)*power)%mod;
@@ -152,16 +142,14 @@ class Solution {
         if(fh==rh)
         index = i; 
       }
-    String remSuffix = s.substring(index+1);
-    StringBuilder sb = new StringBuilder(remSuffix).reverse();
-    return sb.append(s).toString();
-      
-
+      String remSuffix = s.substring(index+1);
+      StringBuilder sb = new StringBuilder(remSuffix).reverse();
+      return sb.append(s).toString();
     }
 }
 
 // Longest Happy Prefix
-class Solution {
+class LongestHappyPrefix {
     public String longestPrefix(String s) {
         int n = s.length();
         int[] lps = new int[n];
