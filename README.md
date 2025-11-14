@@ -52,31 +52,28 @@ This repository provides a step-by-step, topic-driven collection of Java impleme
 
 ## 📁 Actual Project Structure
 
-The repository organizes solutions step-by-step, mirroring a guided learning roadmap for DSA. Each "Step" folder targets a major topic, subdivided by difficulty or lecture. Example layout:
+The repository is organized progressively by topic, with each step representing a key area in data structures and algorithms. Steps are:
 
-- `Step 1  Learn the basics/`
-  - `basics.java`
-- `Step 2  Learn Important Sorting Techniques/`
-  - `Sorting.java`
-- `Step 3  Solve Problems on Arrays/`
-  - `Lec 1 Easy/arrays.java`
-  - `Lec 2 Medium/arrays.java`
-  - `Lec 3 Hard/arrays.java`
-- `Step 4  Binary Search [1D, 2D Arrays, Search Space]/`
-  - `Lec 1 BS on 1D Arrays/BinarySearch.java`
-  - ...
-- `Step 5  Strings/`
-  - `Lec 1 Basic and Easy String Problems/strings.java`
-  - `Lec 2 Medium String Problems/strings.java`
-- `Step 6  Learn LinkedList [Single LL, Double LL, Medium, Hard Problems]/`
-  - `Lec 1–5/linkedlist.java`
-- ...
-- `Step 15  Graphs [Concepts & Problems]/`
-  - e.g., BFS, DFS, Topological Sort, Minimum Spanning Tree, etc.
-- `Step 16  Dynamic Programming [Patterns and Problems]/`
-  - `Lec 2–9/Dynamic_Programming.java`
+- Step 1  Learn the basics
+- Step 2  Learn Important Sorting Techniques
+- Step 3  Solve Problems on Arrays
+- Step 4  Binary Search [1D, 2D Arrays, Search Space]
+- Step 5  Strings
+- Step 6  Learn LinkedList [Single LL, Double LL, Medium, Hard Problems]
+- Step 7  Recursion [PatternWise]
+- Step 8  Bit Manipulation [Concepts & Problems]
+- Step 9  Stack and Queues [Learning, Pre-In-Post-fix, Monotonic Stack, Implementation]
+- Step 10  Sliding Window & Two Pointer Combined Problems
+- Step 11  Heaps [Learning, Medium, Hard Problems]
+- Step 12  Greedy Algorithms [Easy, MediumHard]
+- Step 13  Binary Trees [Traversals, Medium and Hard Problems]
+- Step 14  Binary Search Trees [Concept and Problems]
+- Step 15  Graphs [Concepts & Problems]
+- Step 16  Dynamic Programming [Patterns and Problems]
+- Step 17  Tries
+- Step 18  Strings
 
-Every folder represents a chronological learning step, with relevant `.java` files organized by subtopic or difficulty. Each file typically contains multiple class solutions for several problems on that theme. See folder names for the specific topic or pattern covered in each step.
+Each folder contains Java code and solutions relevant to its core topic, structured for step-by-step DSA learning and interview mastery.
 
 ---
 
