@@ -100,17 +100,25 @@ java arrays # Typical if 'public static void main' is present
 
 ---
 
-## 📚 Topics & Organization (Sample Steps)
-- **Step 1:** Language/Java basics, Tries/strings/arrays
-- **Step 2:** Classic Sorting (Selection, Bubble, Insertion, Merge, Quick, Heap)
-- **Step 3:** Array pattern problems (largest, second largest, rotation, union, longest subarray, etc)
-- **Step 4:** Binary Search (1D/2D, bounds, peak elements, special variants)
-- **Step 5:** Strings (easy/medium, anagrams, manipulation)
-- **Step 6:** Linked Lists (SLL, DLL, cycles, intersection, palindrome, etc)
-- **Step 7:** Recursion (patterns, subsets, hard combos)
-- **...**
-- **Step 16:** Dynamic Programming (1D, 2D, subsequences, stocks, LIS, MCM, etc)
-- **Step 18:** Advanced/hard string problems
+## 📚 Topics & Organization (All Steps)
+- **Step 1:** Learn the Basics (Java fundamentals, operators, input/output, patterns)
+- **Step 2:** Important Sorting Techniques (Selection, Bubble, Insertion, Merge, Quick, Heap Sort)
+- **Step 3:** Problems on Arrays (largest, second largest, rotation, union, subarrays, prefix sum, etc.)
+- **Step 4:** Binary Search (on 1D/2D arrays, search space, special variants)
+- **Step 5:** Strings (basic/medium, anagrams, substring and manipulation problems)
+- **Step 6:** Linked Lists (Singly, Doubly, cycles, intersection, palindrome, operations)
+- **Step 7:** Recursion (core patterns, subsets, combinations, backtracking, hard combos)
+- **Step 8:** Bit Manipulation (all concepts, set/clear bits, advanced math, bit tricks)
+- **Step 9:** Stack and Queues (stack basics, prefix/infix/postfix, monotonic stack, queue implementations)
+- **Step 10:** Sliding Window & Two Pointer Techniques (easy, medium, and hard window/pointer problems)
+- **Step 11:** Heaps (learning heap, priority queue, min/max heap, heap problems)
+- **Step 12:** Greedy Algorithms (classic greedy, easy to medium-hard level problems)
+- **Step 13:** Binary Trees (traversals, easy/medium/hard tree problems)
+- **Step 14:** Binary Search Trees (BST operations, validation, LCA, kth smallest/largest, construction & more)
+- **Step 15:** Graphs (representation, BFS/DFS, topological sort, shortest path algorithms, MST, disjoint sets, flood fill, cycle detection)
+- **Step 16:** Dynamic Programming (1D/2D, DP on subsequences, stocks, LIS, MCM, patterns & problems)
+- **Step 17:** Tries (prefix trees, implementation, theory, and trie problems)
+- **Step 18:** Strings (Advanced/Hard string pattern problems, automata, and tricky algorithms)
 
 Each `Step x <Topic>` folder contains one or more `.java` files with classes for each typical LeetCode/GFG-style DSA problem of that type.
 
@@ -140,14 +148,9 @@ Contributions for new problems, additional code comments, bug fixes, and JUnit t
 
 ---
 
-## 📄 License
-This project is licensed under the **MIT License** — see [LICENSE](LICENSE).
-
----
-
 ## 📬 Contact
 **Harsh Kushwaha** — Developer & Maintainer
-- Portfolio: [portfolio-3.vercel.app](https://portfolio-3.vercel.app/)
+- Portfolio: [portfolio-3.vercel.app](https://portflio-3.vercel.app/)
 - GitHub: [github.com/harshkushwaha7x](https://github.com/harshkushwaha7x)
 - LinkedIn: [linkedin.com/in/harshkushwaha7x](https://www.linkedin.com/in/harsh-kushwaha-7x/)
 - Email: harshkushwaha4151@gmail.com
