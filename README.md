@@ -146,7 +146,7 @@ This project is licensed under the **MIT License** — see [LICENSE](LICENSE).
 ---
 
 ## 📬 Contact
-@Harsh Kushwaha — Developer & Maintainer
+**Harsh Kushwaha** — Developer & Maintainer
 - Portfolio: [portfolio-3.vercel.app](https://portfolio-3.vercel.app/)
 - GitHub: [github.com/harshkushwaha7x](https://github.com/harshkushwaha7x)
 - LinkedIn: [linkedin.com/in/harshkushwaha7x](https://www.linkedin.com/in/harsh-kushwaha-7x/)
