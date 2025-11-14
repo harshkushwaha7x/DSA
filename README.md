@@ -52,42 +52,31 @@ This repository provides a step-by-step, topic-driven collection of Java impleme
 
 ## 📁 Actual Project Structure
 
-```
-/DSA (repo root)
-│
-├── Step 1  Learn the basics\
-│     └─ basics.java
-├── Step 2  Learn Important Sorting Techniques\
-│     └─ Sorting.java
-├── Step 3  Solve Problems on Arrays\
-│     └─ Lec 1 Easy/arrays.java
-│     └─ Lec 2 Medium/arrays.java
-│     └─ Lec 3 Hard/arrays.java
-├── Step 4  Binary Search [1D, 2D Arrays, Search Space]\
-│     └─ .../BinarySearch.java
-├── Step 5  Strings\
-│     └─ Lec 1 Basic and Easy String Problems/strings.java
-│     └─ Lec 2 Medium String Problems/strings.java
-├── Step 6  Learn LinkedList [Single LL, Double LL, Medium, Hard Problems]\
-│     └─ Lec 1...5/linkedlist.java
-├── Step 7  Recursion [PatternWise]\
-│     └─ Lec .../recursion.java
-├── Step 8  Bit Manipulation [Concepts & Problems]\
-│     └─ Lec .../bit_manipulation.java
-├── Step 9  Stack and Queues [...]
-├── Step 10  Sliding Window & Two Pointer ...
-├── Step 11  Heaps [...]
-├── Step 12  Greedy Algorithms [...]
-├── Step 13  Binary Trees [...]
-├── Step 14  Binary Search Trees [...]
-├── Step 15  Graphs [...]
-├── Step 16  Dynamic Programming [...]
-├── Step 17  Tries [...]
-├── Step 18  Strings [...]
-└── README.md, LICENSE
-```
+The repository organizes solutions step-by-step, mirroring a guided learning roadmap for DSA. Each "Step" folder targets a major topic, subdivided by difficulty or lecture. Example layout:
 
-Your codebase is sequenced **by major DSA learning steps** — each with subfolders for lectures and difficulty. Most files follow a format of multiple solution classes in a single `.java` file per topic/lecture.
+- `Step 1  Learn the basics/`
+  - `basics.java`
+- `Step 2  Learn Important Sorting Techniques/`
+  - `Sorting.java`
+- `Step 3  Solve Problems on Arrays/`
+  - `Lec 1 Easy/arrays.java`
+  - `Lec 2 Medium/arrays.java`
+  - `Lec 3 Hard/arrays.java`
+- `Step 4  Binary Search [1D, 2D Arrays, Search Space]/`
+  - `Lec 1 BS on 1D Arrays/BinarySearch.java`
+  - ...
+- `Step 5  Strings/`
+  - `Lec 1 Basic and Easy String Problems/strings.java`
+  - `Lec 2 Medium String Problems/strings.java`
+- `Step 6  Learn LinkedList [Single LL, Double LL, Medium, Hard Problems]/`
+  - `Lec 1–5/linkedlist.java`
+- ...
+- `Step 15  Graphs [Concepts & Problems]/`
+  - e.g., BFS, DFS, Topological Sort, Minimum Spanning Tree, etc.
+- `Step 16  Dynamic Programming [Patterns and Problems]/`
+  - `Lec 2–9/Dynamic_Programming.java`
+
+Every folder represents a chronological learning step, with relevant `.java` files organized by subtopic or difficulty. Each file typically contains multiple class solutions for several problems on that theme. See folder names for the specific topic or pattern covered in each step.
 
 ---
 
