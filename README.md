@@ -28,7 +28,7 @@ This repository provides a step-by-step, topic-driven collection of Java impleme
 - Comprehensive, progressive step-based DSA coverage
 - Ideal for technical interview prep and computer science exams
 - LeetCode/GeeksforGeeks/GFG/FAANG-style solutions
-- Code and logic explained; modular for reference
+- Clean, modular, and well-explained code for easy reference
 - Easy to extend or review any topic
 
 ---
@@ -65,13 +65,13 @@ The repository is organized progressively by topic, with each step representing 
 - Step 9  Stack and Queues [Learning, Pre-In-Post-fix, Monotonic Stack, Implementation]
 - Step 10  Sliding Window & Two Pointer Combined Problems
 - Step 11  Heaps [Learning, Medium, Hard Problems]
-- Step 12  Greedy Algorithms [Easy, MediumHard]
+- Step 12  Greedy Algorithms [Easy, Medium, Hard]
 - Step 13  Binary Trees [Traversals, Medium and Hard Problems]
 - Step 14  Binary Search Trees [Concept and Problems]
 - Step 15  Graphs [Concepts & Problems]
 - Step 16  Dynamic Programming [Patterns and Problems]
 - Step 17  Tries
-- Step 18  Strings
+- Step 18: Advanced String Algorithms
 
 Each folder contains Java code and solutions relevant to its core topic, structured for step-by-step DSA learning and interview mastery.
 
@@ -150,7 +150,7 @@ Contributions for new problems, additional code comments, bug fixes, and JUnit t
 
 ## 📬 Contact
 **Harsh Kushwaha** — Developer & Maintainer
-- Portfolio: [portfolio-3.vercel.app](https://portflio-3.vercel.app/)
+- Portfolio: [portflio-3.vercel.app](https://portflio-3.vercel.app/)
 - GitHub: [github.com/harshkushwaha7x](https://github.com/harshkushwaha7x)
 - LinkedIn: [linkedin.com/in/harshkushwaha7x](https://www.linkedin.com/in/harsh-kushwaha-7x/)
 - Email: harshkushwaha4151@gmail.com
