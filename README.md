@@ -2,9 +2,9 @@
 
 # 📚 Data Structures and Algorithms in Java 💻
 
-**Data Structures and Algorithms in Java** is a comprehensive collection of fundamental CS concepts implemented to help developers and students master DSA, prepare for technical interviews, and build strong problem-solving skills. The repository features clean, efficient implementations with detailed explanations and organized code structure.
+**Data Structures and Algorithms in Java** is a comprehensive, step-wise Java DSA roadmap using clean code, real-world DSA problems, and detailed explanations for learning, interviews, and practice. Each topic is organized into folders by Step and Lecture, with hundreds of solved LeetCode/GFG-style problems.
 
-• [Portfolio](https://portflio-3.vercel.app/) • [GitHub](https://github.com/harshkushwaha7x)
+• [Portfolio](https://portfolio-3.vercel.app/) • [GitHub](https://github.com/harshkushwaha7x)
 
 </div>
 
@@ -20,245 +20,150 @@
 ---
 
 ## ✨ Summary
-
-This repository provides clear and efficient implementations of essential data structures and algorithms commonly used in software development and technical interviews. Each implementation includes detailed explanations, time/space complexity analysis, and practical examples to enhance understanding and learning.
+This repository provides a step-by-step, topic-driven collection of Java implementations for DSA mastery: algorithms, data structures, and typical coding interview patterns, each organized by step/lecture/folder for intuitive progression.
 
 ---
 
 ## 📦 Highlights & Use Cases
-
-- Comprehensive coverage of fundamental data structures and algorithms.
-- Perfect for technical interview preparation (FAANG, competitive programming).
-- Clean, well-documented code suitable for learning and reference.
-- Organized structure for easy navigation and experimentation.
-- Ideal for computer science students and self-taught developers.
+- Comprehensive, progressive step-based DSA coverage
+- Ideal for technical interview prep and computer science exams
+- LeetCode/GeeksforGeeks/GFG/FAANG-style solutions
+- Code and logic explained; modular for reference
+- Easy to extend or review any topic
 
 ---
 
 ## 🚀 Features
-
-- 📊 Complete implementations of essential data structures
-- 🔍 Multiple searching and sorting algorithms with complexity analysis
-- 🌳 Tree and graph traversal techniques
-- 💡 Dynamic programming solutions to classic problems
-- 🧪 Test cases and examples for each implementation
-- 📖 Detailed comments and documentation
-- ⚡ Optimized solutions with best practices
+- 50+ focused topic folders, each with real Java solutions
+- Arrays, Strings, Bit Manipulation, Recursion, Sorting, Binary Search, Stack & Queue, Linked List (SLL/DLL), Trees, BSTs, Heaps, Tries, Graphs (BFS, DFS, Topo, Shortest-Path), Dynamic Programming, Greedy, Sliding Window, and more
+- Structured step/lecture layout for easy tracking
+- Clean, interview-grade Java code with comments
+- Contributions welcome for all new DSA problems
 
 ---
 
 ## 🧩 Tech Stack
-
-**Language:** Java  
-**Development:** JDK 8+  
-**Tools:** IntelliJ IDEA / Eclipse / VS Code  
-**Testing:** JUnit (optional)  
-**Version Control:** Git & GitHub
+- **Language:** Java (JDK 8+ recommended)
+- **Editors:** IntelliJ IDEA / Eclipse / VS Code
+- **Version Control:** Git & GitHub
+- **Testing:** No formal test folder/JUnit as of now (see below)
 
 ---
 
-## 📁 Project Structure
+## 📁 Actual Project Structure
 
 ```
-/DSA
+/DSA (repo root)
 │
-├── src/
-│   ├── datastructures/
-│   │   ├── arrays/           # Array operations
-│   │   ├── linkedlists/      # Singly & Doubly Linked Lists
-│   │   ├── stacks/           # Stack implementations
-│   │   ├── queues/           # Queue variants
-│   │   ├── trees/            # Binary Trees, BST, AVL, Heap
-│   │   └── graphs/           # Graph representations
-│   │
-│   ├── algorithms/
-│   │   ├── sorting/          # Bubble, Merge, Quick, Heap Sort
-│   │   ├── searching/        # Linear, Binary Search
-│   │   ├── graphalgorithms/  # Dijkstra, Kruskal, Prim
-│   │   └── dynamicprogramming/ # DP solutions
-│   │
-│   └── utils/                # Helper classes
-│
-├── tests/                    # Unit tests
-├── README.md                 # Project documentation
-└── LICENSE                   # License file
+├── Step 1  Learn the basics\
+│     └─ basics.java
+├── Step 2  Learn Important Sorting Techniques\
+│     └─ Sorting.java
+├── Step 3  Solve Problems on Arrays\
+│     └─ Lec 1 Easy/arrays.java
+│     └─ Lec 2 Medium/arrays.java
+│     └─ Lec 3 Hard/arrays.java
+├── Step 4  Binary Search [1D, 2D Arrays, Search Space]\
+│     └─ .../BinarySearch.java
+├── Step 5  Strings\
+│     └─ Lec 1 Basic and Easy String Problems/strings.java
+│     └─ Lec 2 Medium String Problems/strings.java
+├── Step 6  Learn LinkedList [Single LL, Double LL, Medium, Hard Problems]\
+│     └─ Lec 1...5/linkedlist.java
+├── Step 7  Recursion [PatternWise]\
+│     └─ Lec .../recursion.java
+├── Step 8  Bit Manipulation [Concepts & Problems]\
+│     └─ Lec .../bit_manipulation.java
+├── Step 9  Stack and Queues [...]
+├── Step 10  Sliding Window & Two Pointer ...
+├── Step 11  Heaps [...]
+├── Step 12  Greedy Algorithms [...]
+├── Step 13  Binary Trees [...]
+├── Step 14  Binary Search Trees [...]
+├── Step 15  Graphs [...]
+├── Step 16  Dynamic Programming [...]
+├── Step 17  Tries [...]
+├── Step 18  Strings [...]
+└── README.md, LICENSE
 ```
+
+Your codebase is sequenced **by major DSA learning steps** — each with subfolders for lectures and difficulty. Most files follow a format of multiple solution classes in a single `.java` file per topic/lecture.
 
 ---
 
-## 🛠️ Quick Start (Local)
+## 🛠️ Quick Start (Run Any Solution)
 
 1. **Clone the repository**
 ```bash
 git clone https://github.com/harshkushwaha7x/DSA.git
 cd DSA
 ```
-
-2. **Navigate to the source directory**
+2. **Navigate to any Step/Lecture folder**
 ```bash
-cd src
+cd "Step 3 Solve Problems on Arrays/Lec 1 Easy"
 ```
-
-3. **Compile and run any Java file**
+3. **Compile the Java file:**
 ```bash
-javac datastructures/arrays/ArrayOperations.java
-java datastructures.arrays.ArrayOperations
+javac arrays.java
 ```
-
-Or compile and run specific algorithms:
+4. **Run the main (if present) or your own test harness:**
 ```bash
-javac algorithms/sorting/QuickSort.java
-java algorithms.sorting.QuickSort
+java arrays # Typical if 'public static void main' is present
 ```
+**Note:** Most files use *class-per-problem* format. Add your own `main()` if absent to test a solution.
 
 ---
 
-## 📚 Data Structures
+## 📚 Topics & Organization (Sample Steps)
+- **Step 1:** Language/Java basics, Tries/strings/arrays
+- **Step 2:** Classic Sorting (Selection, Bubble, Insertion, Merge, Quick, Heap)
+- **Step 3:** Array pattern problems (largest, second largest, rotation, union, longest subarray, etc)
+- **Step 4:** Binary Search (1D/2D, bounds, peak elements, special variants)
+- **Step 5:** Strings (easy/medium, anagrams, manipulation)
+- **Step 6:** Linked Lists (SLL, DLL, cycles, intersection, palindrome, etc)
+- **Step 7:** Recursion (patterns, subsets, hard combos)
+- **...**
+- **Step 16:** Dynamic Programming (1D, 2D, subsequences, stocks, LIS, MCM, etc)
+- **Step 18:** Advanced/hard string problems
 
-### Arrays
-- Array operations: searching, insertion, deletion, traversal
-- Two-pointer technique implementations
-- Sliding window problems
-
-### Linked Lists
-- **Singly Linked List:** Insert, delete, search, reverse operations
-- **Doubly Linked List:** Bidirectional traversal and manipulation
-- **Circular Linked List:** Loop detection and handling
-
-### Stacks
-- Array-based and linked list-based implementations
-- Applications: Expression evaluation, parentheses matching
-- Min/Max stack variants
-
-### Queues
-- Standard Queue operations
-- Circular Queue implementation
-- Priority Queue using heaps
-- Deque (Double-ended Queue)
-
-### Trees
-- **Binary Tree:** In-order, pre-order, post-order traversal
-- **Binary Search Tree:** Search, insert, delete operations
-- **AVL Tree:** Self-balancing BST with rotations
-- **Heap:** Min-Heap and Max-Heap implementations
-- **Trie:** Prefix tree for string operations
-
-### Graphs
-- Adjacency List and Adjacency Matrix representations
-- BFS (Breadth-First Search) implementation
-- DFS (Depth-First Search) implementation
-- Cycle detection algorithms
+Each `Step x <Topic>` folder contains one or more `.java` files with classes for each typical LeetCode/GFG-style DSA problem of that type.
 
 ---
 
-## 🔬 Algorithms
-
-### Sorting Algorithms
-| Algorithm | Time Complexity (Best) | Time Complexity (Average) | Time Complexity (Worst) | Space Complexity |
-|-----------|------------------------|---------------------------|-------------------------|------------------|
-| Bubble Sort | O(n) | O(n²) | O(n²) | O(1) |
-| Selection Sort | O(n²) | O(n²) | O(n²) | O(1) |
-| Insertion Sort | O(n) | O(n²) | O(n²) | O(1) |
-| Merge Sort | O(n log n) | O(n log n) | O(n log n) | O(n) |
-| Quick Sort | O(n log n) | O(n log n) | O(n²) | O(log n) |
-| Heap Sort | O(n log n) | O(n log n) | O(n log n) | O(1) |
-
-### Searching Algorithms
-- **Linear Search:** O(n) time complexity
-- **Binary Search:** O(log n) time complexity (sorted arrays)
-- **Jump Search:** O(√n) time complexity
-- **Interpolation Search:** O(log log n) average case
-
-### Graph Algorithms
-- **Dijkstra's Algorithm:** Shortest path in weighted graphs
-- **Kruskal's Algorithm:** Minimum Spanning Tree (MST)
-- **Prim's Algorithm:** Alternative MST algorithm
-- **Bellman-Ford:** Handles negative weights
-- **Floyd-Warshall:** All-pairs shortest paths
-
-### Dynamic Programming
-- **Knapsack Problem:** 0/1 and unbounded variants
-- **Fibonacci Sequence:** Optimized with memoization
-- **Longest Common Subsequence:** String comparison
-- **Coin Change Problem:** Minimum coins and combinations
-- **Edit Distance:** String transformation
-- **Matrix Chain Multiplication:** Optimization problem
-
----
-
-## 🧪 Usage Examples
-
-### Running a Sorting Algorithm
-```bash
-# Navigate to sorting directory
-cd src/algorithms/sorting
-
-# Compile and run Quick Sort
-javac QuickSort.java
-java QuickSort
-```
-
-### Testing a Data Structure
-```bash
-# Navigate to data structures directory
-cd src/datastructures/trees
-
-# Compile and run Binary Search Tree
-javac BinarySearchTree.java
-java BinarySearchTree
-```
-
----
-
-## 📊 Complexity Analysis
-
-Each implementation includes:
-- **Time Complexity:** Best, average, and worst-case scenarios
-- **Space Complexity:** Auxiliary space requirements
-- **Trade-offs:** Pros and cons of each approach
-- **Use Cases:** When to use each data structure/algorithm
-
----
-
-## ✅ Best Practices
-
-- Clean, readable code with meaningful variable names
-- Comprehensive comments explaining logic
-- Edge case handling (null checks, empty inputs)
-- Optimized implementations following Java conventions
-- Modular design for easy testing and reusability
+## 📖 Running & Customizing
+- Use any Java compiler or IDE.
+- Edit/add your own `main()` for custom testing.
+- Each step/lecture source is standalone — you don't need external libraries.
+- **Testing:** No formal `/tests` or JUnit at this time. Feel free to add and PR!
 
 ---
 
 ## 🤝 Contributing
+Contributions for new problems, additional code comments, bug fixes, and JUnit test harnesses are very welcome!
 
-Contributions are welcome!
+- Use the existing folder/step structure.
+- Add new solutions as new methods/classes inside the relevant step or as a new file if a distinct topic.
+- Document each class/problem, add sample input/output where possible.
+- PRs for test suites and improved navigation/readability are appreciated!
 
+**To contribute:**
 1. Fork the repository
-2. Create your branch: `git checkout -b feature/new-algorithm`
-3. Commit changes: `git commit -m "Added new sorting algorithm"`
-4. Push and open a Pull Request
-
-**Contribution Guidelines:**
-- Follow existing code style and formatting
-- Add comments and documentation
-- Include complexity analysis
-- Test your implementations thoroughly
+2. Create a branch (`git checkout -b feature/my-solution`)
+3. Commit and push your changes
+4. Open a Pull Request and explain your additions/fixes
 
 ---
 
 ## 📄 License
-
 This project is licensed under the **MIT License** — see [LICENSE](LICENSE).
 
 ---
 
 ## 📬 Contact
-
-**Harsh Kushwaha** — Developer & Maintainer  
-- Portfolio: [https://portflio-3.vercel.app/](https://portflio-3.vercel.app/)  
-- GitHub: [https://github.com/harshkushwaha7x](https://github.com/harshkushwaha7x)  
-- LinkedIn: [https://linkedin.com/in/harshkushwaha7x](https://www.linkedin.com/in/harsh-kushwaha-7x/)  
+@Harsh Kushwaha — Developer & Maintainer
+- Portfolio: [portfolio-3.vercel.app](https://portfolio-3.vercel.app/)
+- GitHub: [github.com/harshkushwaha7x](https://github.com/harshkushwaha7x)
+- LinkedIn: [linkedin.com/in/harshkushwaha7x](https://www.linkedin.com/in/harsh-kushwaha-7x/)
 - Email: harshkushwaha4151@gmail.com
 
 ---
